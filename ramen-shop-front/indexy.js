@@ -19,8 +19,9 @@ function renderCart(){
     console.log(cart_total)   
     const removeBtns = document.querySelectorAll(".remove-button")
     removeBtns.forEach(button => button.addEventListener("click", e => removeFromCart(e)))
+    const placeOrderButton = document.getElementById("place-order-button");
+    placeOrderButton.addEventListener("click", makeNewOrderForm)
 }
-
 
 function removeFromCart(e){
     e.preventDefault()
@@ -35,3 +36,19 @@ function removeFromCart(e){
     list_item.remove()
     renderCart()
 }
+
+function makeNewOrderForm(){
+let order_form = document.getElementById("order-form")
+let form = document.createElement("form")
+let input = document.createElement("input")
+input.type = "text"
+input.placeholder = "Enter your name:"
+let submit = document.createElement("button")
+submit.type = "submit"
+submit.innerText = "Submit"
+form.appendChild(input)
+form.appendChild(submit)
+order_form.appendChild(form)
+form.addEventListener("submit", e => Order.CreateOrder(order, e))}
+
+
