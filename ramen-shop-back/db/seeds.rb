@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ramen_menu = Menu.create(category: "ramen")
+
+menu_item_one = MenuItem.create(name: "Tonkatsu Ramen", description: "Pork bone broth", menu_id: 1, price: 15 )
+menu_item_two = MenuItem.create(name: "Shoyu Ramen", description: "Soy broth", menu_id: 1, price: 14 )
