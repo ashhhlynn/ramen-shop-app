@@ -11,16 +11,18 @@ static fetchMenus(){
     .then(resp=> resp.json())
     .then(function(menus){
     menus.forEach(function(menu){
-        let m = new Menu(menu.id, menu.category)
+        let m = (new Menu(menu.id, menu.category))
         Menu.all.push(m)
+        let menus_list = document.getElementById("menus-list")
+        let menu_category = document.createElement("div");
+        menu_category.innerHTML = `<button class="menu-button" id=${menu.id}>${menu.category}</button>`
+        menus_list.appendChild(menu_category)
+        orderListeners()
         menu.menu_items.forEach(function(menu_item){
-        m.menu_items.push(new MenuItem(menu_item.id, menu_item.name, menu_item.price, menu_item.description, menu_item.menu_id))
-        console.log(m.menu_items)})
-    let menus_list = document.getElementById("menus-list")
-    menus_list.innerHTML = `<button class="menu-button" id=1>${m.category}</button>`
-    orderListeners()
-    })})
-}
+            m.menu_items.push(new MenuItem(menu_item.id, menu_item.name, menu_item.price, menu_item.description, menu_item.menu_id, menu_item.image_url))
+            console.log(m.menu_items)})
+         })
+    })}
 
 static renderMenus(e){
     e.preventDefault()
@@ -32,35 +34,21 @@ static renderMenus(e){
 renderMenuItems(){   
     const menu_items_list = document.getElementById("menu-items-list")
     menu_items_list.innerHTML = ""
-    this.menu_items.forEach(menu_item => {     
-        let list_menu_item = document.createElement("div");
-        list_menu_item.id = "card"
-            let list_menu_item_text = document.createElement("div")
-            list_menu_item_text.id = `item text-${menu_item.id}`
-            list_menu_item_text.innerHTML = `<h2>${menu_item.name}: $${menu_item.price}</h2>`
-            console.log(list_menu_item_text.innerHTML)
-        list_menu_item.innerHTML+=
-        `<button class="add-button" id="${menu_item.id}">+</button>`
-    list_menu_item.appendChild(list_menu_item_text)
+    this.menu_items.forEach(menu_item => { 
+            let list_menu_item = document.createElement("div");
+            list_menu_item.id = "card"
+            list_menu_item.innerHTML+=`    
+            <img src="${menu_item.image_url}"><br>
+            ${menu_item.name}: $${menu_item.price}
+            <button class="add-button" id="${menu_item.id}">+</button><br>
+            ${menu_item.description}
+            `
     menu_items_list.appendChild(list_menu_item)})
     const addBtns = document.querySelectorAll(".add-button")
-    addBtns.forEach(button => button.addEventListener('click', e => Menu.addToCart(e)))
+    addBtns.forEach(button => button.addEventListener('click', e => addToCart(e)))
 }
 
-static addToCart(e){
-    e.preventDefault()
-    let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id) 
-        let cc = document.getElementById("cart-contents")
-        let cart_item = document.createElement("li")
-        cart_item.id = `item-${menu_item.id}`
-        cart_item.innerHTML = `${e.target.nextElementSibling.innerHTML}
-        <button class="remove-button" id=${menu_item.id}></button>`
-        cc.appendChild(cart_item)
-    cart_contents.push(menu_item)
-    console.log(cart_contents)
-    cart_total += menu_item.price 
-    renderCart()
-}
+
 
 
 }

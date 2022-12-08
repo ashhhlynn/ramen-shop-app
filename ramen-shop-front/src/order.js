@@ -63,14 +63,13 @@ static renderOrder(order){
     orderContents.innerHTML = 
     `<b>Thank you ${order.name}, your order ${order.id} is complete!</b><br><br>
     <b>Total: $${order.total}<br><br>Items:<br></b>`
-    let listItems = document.querySelectorAll("li")
+    let listItems = document.querySelectorAll("ul")
     for (var i = 0; i < listItems.length; i++ )
     { let t = listItems[i].textContent
     console.log(t)   
     orderContents.innerHTML += `${t}<br>` }
     const cancelOrderButton = document.getElementById("cancel-order-button");
     cancelOrderButton.addEventListener("click", e => Order.cancelOrder(order, e))
-
 }
 
 static cancelOrder(order, e){

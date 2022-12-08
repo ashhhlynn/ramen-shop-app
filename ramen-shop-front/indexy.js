@@ -39,9 +39,25 @@ function taxMath(){
     return Math.round(cart_total * 7)/100
 }
 
+function addToCart(e){
+    e.preventDefault()
+    let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id) 
+    console.log(e.target.previousSibling.textContent)
+        let cc = document.getElementById("cart-contents")
+        let cart_item = document.createElement("ul")
+        cart_item.id = `item-${menu_item.id}`
+        cart_item.innerHTML = `${e.target.previousSibling.textContent}
+        <button class="remove-button" id=${menu_item.id}>-</button>`
+        cc.appendChild(cart_item)
+    cart_contents.push(menu_item)
+    console.log(cart_contents)
+    cart_total += menu_item.price 
+    renderCart()
+}
+
 function renderCart(){
     const cartContents = document.getElementById("cart-contents")
-    let listItems = document.querySelectorAll("li")
+    let listItems = document.querySelectorAll("ul")
     for (var i = 0; i < listItems.length; i++ )
         { cartContents.innerHTML += `` }
     const cartTotal = document.getElementById("cart-total")
