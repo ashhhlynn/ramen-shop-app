@@ -2,13 +2,41 @@ const cart_contents = []
 cart_total = 0
 
 document.addEventListener("DOMContentLoaded", function(){
-const startButton = document.getElementById("start-button");
-startButton.addEventListener("click", startProgram)})
+    const startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", startProgram)
+})
 
 function startProgram(){
     Menu.fetchMenus() 
+    document.getElementById("start").hidden = true
+    viewOne(false) 
+    viewTwo(false)
     const checkoutOrderButton = document.getElementById("checkout-order-button");
     checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
+    
+
+}
+
+function orderListeners(){
+}
+
+function viewOne(show){
+    document.getElementById("menus-list").hidden = show;
+    document.getElementById("menu-items-list").hidden = show
+    document.getElementById("cart-contents").hidden = show
+    document.getElementById("cart-total").hidden = show
+    document.getElementById("checkout-order").hidden = show
+    document.getElementById("cancel-order").hidden = !show
+    document.getElementById("order-contents").hidden = !show
+}
+
+function viewTwo(show){
+    document.getElementById("checkout-contents").hidden = show;
+    document.getElementById("order-form").hidden = show;
+}
+
+function taxMath(){
+    return Math.round(cart_total * 7)/100
 }
 
 function renderCart(){
@@ -16,8 +44,12 @@ function renderCart(){
     let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
         { cartContents.innerHTML += `` }
-    let cartTotal = document.getElementById("cart-total")
-    cartTotal.innerHTML = `Total: $${cart_total}`
+    const cartTotal = document.getElementById("cart-total")
+    
+    let tax = taxMath(cart_total)
+    cartTotal.innerHTML = `Subtotal: $${cart_total}<br>
+    + ${tax}<br>
+    <b>Total: $${tax + cart_total}</b>`
     console.log(cart_total)   
     const removeBtns = document.querySelectorAll(".remove-button")
     removeBtns.forEach(button => button.addEventListener("click", e => removeFromCart(e)))
@@ -26,8 +58,7 @@ function renderCart(){
 function removeFromCart(e){
     e.preventDefault()
     const item = Item.all.find(item => item.id == e.target.id);
-    let new_cart_total = cart_total - item.price
-    cart_total = new_cart_total
+    cart_total -= item.price 
     const index = cart_contents.indexOf(item);
     cart_contents.splice(index, 1)
     console.log(cart_contents)
@@ -39,7 +70,7 @@ function removeFromCart(e){
 
 function clearCart(){
 cart_contents.splice(0,cart_contents.length)
-    console.log(cart_contents)
-    cart_total = 0
-    console.log(cart_total)
+console.log(cart_contents)
+cart_total = 0
+console.log(cart_total)
 }
