@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function startProgram(){
+
     Menu.fetchMenus() 
     document.getElementById("start").hidden = true
     viewOne(false) 
@@ -18,6 +19,8 @@ function startProgram(){
 }
 
 function orderListeners(){
+const menuButton = document.querySelectorAll(".menu-button");
+menuButton.forEach(button => button.addEventListener("click", e => Menu.renderMenus(e)))
 }
 
 function viewOne(show){

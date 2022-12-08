@@ -10,10 +10,8 @@ constructor(id, name, total){
 static makeNewOrderForm(e){
     e.preventDefault()
     viewTwo(false)
-
     let checkoutContents = document.getElementById("checkout-contents")
     checkoutContents.innerHTML = `Review Your Order:`
-
     let order_form = document.getElementById("order-form")
     let form = document.createElement("form")
     let input = document.createElement("input")
@@ -26,7 +24,6 @@ static makeNewOrderForm(e){
     form.appendChild(input)
     form.appendChild(submit)
     order_form.appendChild(form)
-    document.getElementById("cart-total").setAttribute("total", `${cart_total}`)
     form.addEventListener("submit", e => Order.createOrder(e))
 }
 
@@ -37,6 +34,7 @@ static createOrder(e){
     let name = document.querySelector("#name").value
     let total = taxMath(cart_total) + cart_total 
     console.log(total)
+
     const itemz = cart_contents.map(item => {
     return {id: item.id, menu_item_id: item.id}})
     console.log(itemz)
@@ -50,17 +48,17 @@ static createOrder(e){
     body: JSON.stringify({
     name: name,
     total: total,
-    items: [itemz]
+    items: itemz
     })})
     .then(resp=> resp.json())
     .then(function(json){
             console.log(json)
-            clearCart()
             Order.renderOrder(json)
     }) 
 }
 
 static renderOrder(order){
+    clearCart()
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
     `<b>Thank you ${order.name}, your order ${order.id} is complete!</b><br><br>

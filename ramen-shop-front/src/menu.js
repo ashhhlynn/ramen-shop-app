@@ -16,33 +16,36 @@ static fetchMenus(){
         menu.menu_items.forEach(function(menu_item){
         m.menu_items.push(new MenuItem(menu_item.id, menu_item.name, menu_item.price, menu_item.description, menu_item.menu_id))
         console.log(m.menu_items)})
-let menus_list = document.getElementById("menus-list")
-menus_list.innerHTML = `<button class="menu-button" id=1>${m.category}</button>`
-const menuButton = document.querySelectorAll(".menu-button");
-menuButton.forEach(button => button.addEventListener("click", e => Menu.renderMenuItems(e)))
-})})}
+    let menus_list = document.getElementById("menus-list")
+    menus_list.innerHTML = `<button class="menu-button" id=1>${m.category}</button>`
+    orderListeners()
+    })})
+}
 
-static renderMenuItems(e){
+static renderMenus(e){
     e.preventDefault()
     let menu = Menu.all.find(menu => menu.id == e.target.id)
+    console.log(menu)
+    menu.renderMenuItems()
+}
+
+renderMenuItems(){   
     const menu_items_list = document.getElementById("menu-items-list")
     menu_items_list.innerHTML = ""
-    console.log(menu)
-    menu.menu_items.forEach(menu_item => {
+    this.menu_items.forEach(menu_item => {     
         let list_menu_item = document.createElement("div");
         list_menu_item.id = "card"
             let list_menu_item_text = document.createElement("div")
             list_menu_item_text.id = `item text-${menu_item.id}`
             list_menu_item_text.innerHTML = `<h2>${menu_item.name}: $${menu_item.price}</h2>`
-    console.log(list_menu_item_text.innerHTML)
+            console.log(list_menu_item_text.innerHTML)
         list_menu_item.innerHTML+=
         `<button class="add-button" id="${menu_item.id}">+</button>`
     list_menu_item.appendChild(list_menu_item_text)
-    menu_items_list.appendChild(list_menu_item)
-    })
+    menu_items_list.appendChild(list_menu_item)})
     const addBtns = document.querySelectorAll(".add-button")
     addBtns.forEach(button => button.addEventListener('click', e => Menu.addToCart(e)))
-    }
+}
 
 static addToCart(e){
     e.preventDefault()
@@ -57,8 +60,7 @@ static addToCart(e){
     console.log(item)
     cart_contents.push(item)
     console.log(cart_contents)
-    let new_cart_total = cart_total + item.price
-    cart_total = new_cart_total
+    cart_total += item.price 
     renderCart()
 }
 
