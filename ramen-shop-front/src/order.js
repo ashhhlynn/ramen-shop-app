@@ -36,7 +36,7 @@ static createOrder(e){
     console.log(total)
 
     const itemz = cart_contents.map(item => {
-    return {id: item.id, menu_item_id: item.id}})
+    return {id: item.id}})
     console.log(itemz)
 
     fetch("http://localhost:3000/orders", {

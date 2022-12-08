@@ -56,11 +56,9 @@ static addToCart(e){
         cart_item.innerHTML = `${e.target.nextElementSibling.innerHTML}
         <button class="remove-button" id=${menu_item.id}></button>`
         cc.appendChild(cart_item)
-    let item = new Item(menu_item.id, menu_item.name, menu_item.price)
-    console.log(item)
-    cart_contents.push(item)
+    cart_contents.push(menu_item)
     console.log(cart_contents)
-    cart_total += item.price 
+    cart_total += menu_item.price 
     renderCart()
 }
 

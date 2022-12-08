@@ -7,15 +7,12 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function startProgram(){
-
     Menu.fetchMenus() 
     document.getElementById("start").hidden = true
     viewOne(false) 
     viewTwo(false)
     const checkoutOrderButton = document.getElementById("checkout-order-button");
     checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
-    
-
 }
 
 function orderListeners(){
@@ -60,7 +57,7 @@ function renderCart(){
 
 function removeFromCart(e){
     e.preventDefault()
-    const item = Item.all.find(item => item.id == e.target.id);
+    const item = MenuItem.all.find(item => item.id == e.target.id);
     cart_total -= item.price 
     const index = cart_contents.indexOf(item);
     cart_contents.splice(index, 1)
