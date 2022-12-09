@@ -7,10 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+vegetatable_shoyu  = MenuItem.create(name: "Vegetable Shoyu", description: "Vegetable broth: tofu, green onion, corn, bok choy", menu_id: 5, price: 13, image_url: "https://olo-images-live.imgix.net/0c/0c8972a1e0a94e0687412c0fe3c93cee.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=3db6be6e5959f1b8803c28055a9023b4")
 
-salad_menu = Menu.create(category: "salad")
+tonkatsu_original = MenuItem.create(name: "Tonkatsu Original", description: "Pork broth: pork chashu, green onion, spinach, seasoned egg*, nori dried seaweed", menu_id: 5, price: 14, image_url: "https://olo-images-live.imgix.net/a0/a05b1b59f2f94386a933efd4bed4baae.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=b6ca82fa325073a6317f4600fc73692f")
 
-house_salad = MenuItem.create(name: "House Salad", description: "Baby arugula, kale and baby mix green with Japanese dressing", menu_id: 7, price: 5, image_url: "https://olo-images-live.imgix.net/69/69bfeb3290e94b71af69eabfec7ab000.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=3cd5a9195866ca072951b124ef39a72b")
-quinoa_salad = MenuItem.create(name: "Quinoa Salad", description: "Baby greens, kale, broccoli, white quinoa, kidney beans and garbanzo beans tossed with sesame dressing, garnished with corn and cherry tomatoes", menu_id: 7, price: 8, image_url: "https://olo-images-live.imgix.net/54/54cad345c10949728be5dedfc250d9a7.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=9c588ce57ae2dd90c0e10fa54c5199f3")
-
-
+spicy_miso = MenuItem.create(name: "Spicy Umami Miso", description: "Pork broth: ground pork soboro, bean sprouts, green onion, bok choy and chili oil", menu_id: 5, price: 16, image_url: "https://olo-images-live.imgix.net/6f/6fdf3b74cf994bd79f98a7c6e15095b7.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=e6f5e057c35ff296187d5f415be63641")
