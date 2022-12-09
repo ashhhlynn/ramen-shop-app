@@ -12,7 +12,6 @@ this.image_url = image_url;
 MenuItem.all.push(this);
 }
  
-
 static addToCart(e){
     e.preventDefault()
     let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id) 
@@ -30,5 +29,29 @@ static addToCart(e){
     checkCartLength()
 }
 
+static renderCart(){
+    const cartContents = document.getElementById("cart-contents")
+    let listItems = document.querySelectorAll("li")
+    for (var i = 0; i < listItems.length; i++ )
+        { cartContents.innerHTML += `` }    
+        const cartTotal = document.getElementById("cart-total")
+        cartTotal.innerHTML = `${renderTaxMath()}`
+        const removeBtns = document.querySelectorAll(".remove-button")
+        removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCart(e)))
+}
+
+
+static removeFromCart(e){
+    e.preventDefault()
+    const item = MenuItem.all.find(item => item.id == e.target.id);
+    cart_total -= item.price 
+    const index = cart_contents.indexOf(item);
+    cart_contents.splice(index, 1)
+    console.log(cart_contents)
+    let list_item = document.getElementById(`item-${item.id}`)
+    console.log(list_item)
+    list_item.remove()
+    checkCartLength()
+}
 
 }

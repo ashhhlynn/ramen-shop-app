@@ -2,27 +2,83 @@ body{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     font-size: 16px;
     color: 	#5d5d5d;
-    background-color: lavender 
+    background-color: #F0F0F0
 }
 
 .menus-list{
     font-family: "UniversLTStd-BoldCn", sans-serif; 
-    color: 	#5d5d5d;
-    width: 200px;
-    height: 500px;
     box-sizing: border-box;
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    border: black; 
+    border: black;
+    background: white;
     margin-top: 8px;
     line-height: 19.2px;
-    background: white;
+    color: 	#5d5d5d;
+    width: 150px;
+    height: 500px;
 }
+
+.menu-items-list{
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    box-sizing: border-box;
+    border: black; 
+    background: white;
+    margin-top: 8px;
+    line-height: 19.2px;
+    color: 	#5d5d5d;
+    width: 700px;    
+    position: relative;
+    left: 150px;
+    bottom: 507px;
+}
+
+.cart{
+    font-family: "UniversLTStd-BoldCn", sans-serif;     
+    text-align: center;
+    float: center;
+    margin-top: 8px;    
+    color: 	#5d5d5d;
+    line-height: 19.2px;
+    width: 300px;
+    height: 590px;
+    max-height: 590px;
+    position: absolute;
+    right: 22px;
+    top: 17px;
+    background: white ;
+    }
+h3{
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    text-transform: uppercase;
+
+    padding: 1.5em 0 1.5em;
+}
+
+
+
+
+
+.order-contents{
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    color: 	#5d5d5d;
+    width: 900px;
+    height: 590px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    background: white;
+    text-align: center;
+}
+
 
 .menu-button{
     margin: 8px;
     font-weight: 400px;
     font-size: 20px;
-    background: white;
+    background: #F8F8F8;
     color:    #5d5d5d;
     text-align: left;
     line-height: 19.2px;
@@ -36,7 +92,7 @@ body{
     margin: 8px;
     font-weight: 400px;
     font-size: 20px;
-    background: white;
+    background: #F8F8F8;
     color:    #5d5d5d;
     text-align: left;
     line-height: 19.2px;
@@ -50,65 +106,47 @@ body{
 .card{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     color: 	#5d5d5d;
-    width: 900px;
-    height: 590px;
-    position: relative;
-    left: 0px;
-    top: 0px;
+    width: 90px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 15px; 
     box-sizing: border-box;
     background: white;
     border: black;
 }
 
 img {
-    height: 50%;
-    width: 50%;
+    height: 30%;
+    width: 30%;
   }
 
 .add-button{
     border-color: #313131;
     color: #313131;
-    padding-top: 13px;
+    padding-top: 9px;
     padding-bottom: 9px;
     font-weight: 500;
-    padding: 0.65em 0.75em 0.79em;
+    padding: 0.65em 0.65em 0.65em;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
 }
 
-.menu-items-list{
+.remove-button{
+    border-color: #313131;
+    color: #313131;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: 500;
+    padding: 0.2em 0.2em 0.2em;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
-    box-sizing: border-box;
-    border: black; 
-    line-height: 19.2px;
-    background: white;
-    margin-top: 8px;
-    color: 	#5d5d5d;
-    width: 500px;
-    position: relative;
-    left: 150px;
-    bottom: 500px
 }
 
-.order-contents{
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    color: 	#5d5d5d;
-    width: 900px;
-    height: 590px;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    box-sizing: border-box;
-    background: white;
+.sub-button{
+border-color: #313131;
+color: #313131;
+padding-top: 2px;
+padding-bottom: 2px;
+font-weight: 500;
+padding: 0.2em 0.2em 0.2em;
+font-family: "UniversLTStd-BoldCn", sans-serif; 
 }
 
-.cart{
-    font-family: "UniversLTStd-BoldCn", sans-serif;         
-    color: 	#5d5d5d;
-    width: 300px;
-    height: 590px;
-    max-height: 590px;
-    position: absolute;
-    right: 22px;
-    top: 10px;
-    background: white ;
-    }

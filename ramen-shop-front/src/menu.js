@@ -37,7 +37,7 @@ renderMenuItems(){
     menu_items_list.innerHTML = ""
     this.menu_items.forEach(menu_item => { 
             let list_menu_item = document.createElement("div");
-            list_menu_item.id = "card"
+            list_menu_item.class = "card"
             list_menu_item.innerHTML+=`    
             <img src="${menu_item.image_url}"><br>
             ${menu_item.name}: $${menu_item.price}

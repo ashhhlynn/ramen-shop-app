@@ -20,6 +20,7 @@ static makeNewOrderForm(e){
     input.placeholder = "Enter your name:"
     let submit = document.createElement("button")
     submit.type = "submit"
+    submit.id = 'sub-button'
     submit.innerText = "Place Order"
     form.appendChild(input)
     form.appendChild(submit)
