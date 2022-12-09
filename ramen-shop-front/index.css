@@ -1,0 +1,113 @@
+body{
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    font-size: 16px;
+    color: 	#5d5d5d;
+    background-color: lavender 
+}
+
+.menus-list{
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    color: 	#5d5d5d;
+    width: 200px;
+    height: 500px;
+    box-sizing: border-box;
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    border: black; 
+    margin-top: 8px;
+    line-height: 19.2px;
+    background: white;
+}
+
+.menu-button{
+    margin: 8px;
+    font-weight: 400px;
+    font-size: 20px;
+    background: white;
+    color:    #5d5d5d;
+    text-align: left;
+    line-height: 19.2px;
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    margin-bottom: 2em;
+    padding: 1em 1em 1em 1em;
+    border: gray;
+ }
+
+ .key-button{
+    margin: 8px;
+    font-weight: 400px;
+    font-size: 20px;
+    background: white;
+    color:    #5d5d5d;
+    text-align: left;
+    line-height: 19.2px;
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    margin-bottom: 2em;
+    padding: 1em 1em 1em 1em;
+    border: gray;
+}
+
+
+.card{
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    color: 	#5d5d5d;
+    width: 900px;
+    height: 590px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    background: white;
+}
+
+img {
+    height: 50%;
+    width: 50%;
+  }
+
+.add-button{
+    border-color: #313131;
+    color: #313131;
+    padding-top: 13px;
+    padding-bottom: 9px;
+    font-weight: 500;
+    padding: 0.65em 0.75em 0.79em;
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+}
+
+.menu-items-list{
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    box-sizing: border-box;
+    border: black; 
+    line-height: 19.2px;
+    background: white;
+    margin-top: 8px;
+    color: 	#5d5d5d;
+    width: 500px;
+    position: relative;
+    left: 150px;
+    bottom: 500px
+}
+
+.order-contents{
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    color: 	#5d5d5d;
+    width: 900px;
+    height: 590px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.cart{
+    font-family: "UniversLTStd-BoldCn", sans-serif;         
+    color: 	#5d5d5d;
+    width: 300px;
+    height: 590px;
+    max-height: 590px;
+    position: absolute;
+    right: 22px;
+    top: 10px;
+    background: white ;
+    }
