@@ -22,7 +22,7 @@ static addToCart(e){
         cart_item.title = `${e.target.previousSibling.textContent}`
         cart_item.innerHTML = `${cart_item.title}
         <button class="remove-button" id=${menu_item.id}>-</button>`
-        cartContents.appendChild(cart_item)
+    cartContents.appendChild(cart_item)
     cart_contents.push(menu_item)
     console.log(cart_contents)
     cart_total += menu_item.price 
@@ -34,12 +34,11 @@ static renderCart(){
     let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
         { cartContents.innerHTML += `` }    
-        const cartTotal = document.getElementById("cart-total")
-        cartTotal.innerHTML = `${renderTaxMath()}`
-        const removeBtns = document.querySelectorAll(".remove-button")
-        removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCart(e)))
+    const cartTotal = document.getElementById("cart-total")
+    cartTotal.innerHTML = `${renderTaxMath()}`
+    const removeBtns = document.querySelectorAll(".remove-button")
+    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCart(e)))
 }
-
 
 static removeFromCart(e){
     e.preventDefault()

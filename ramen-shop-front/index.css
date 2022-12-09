@@ -59,7 +59,9 @@ h3{
 
 
 
-
+.order{
+    text-align: center;
+}
 .order-contents{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     color: 	#5d5d5d;
@@ -70,7 +72,7 @@ h3{
     top: 0px;
     box-sizing: border-box;
     background: white;
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -140,13 +142,27 @@ img {
     font-family: "UniversLTStd-BoldCn", sans-serif; 
 }
 
-.sub-button{
-border-color: #313131;
-color: #313131;
-padding-top: 2px;
-padding-bottom: 2px;
-font-weight: 500;
-padding: 0.2em 0.2em 0.2em;
-font-family: "UniversLTStd-BoldCn", sans-serif; 
+input[type=text]{
+    border-color: #313131;
+    color: navy;
+    padding-bottom: 2px;
+    font-weight: 500;
+    padding-top: 2px;
 }
+
+button[type=submit]{
+    margin: 8px;
+    font-weight: 400px;
+    font-size: 20px;
+    background: #F8F8F8;
+    color:    #5d5d5d;
+    text-align: left;
+    line-height: 19.2px;
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    margin-bottom: 2em;
+    padding: 1em 1em 1em 1em;
+    border: gray;
+}
+
+
 

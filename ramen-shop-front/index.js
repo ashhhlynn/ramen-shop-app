@@ -1,4 +1,3 @@
-
 const cart_contents = [];
 cart_total = 0
 
@@ -24,7 +23,6 @@ function oView(show){
     document.getElementById("cancel-order").hidden = !show
     document.getElementById("order-contents").hidden = !show
     document.getElementById("checkout").hidden = !show;
-
 }
 
 function viewOne(show){
@@ -44,10 +42,12 @@ const cartContents = document.getElementById("cart-contents")
 const cartTotal = document.getElementById("cart-total")
     if (cart_contents.length == 0){
         cartContents.innerHTML = `Your Cart is Empty!`
-        cartTotal.innerHTML = ``}
+        cartTotal.innerHTML = ``
+    }
     else {
         MenuItem.renderCart()
-    }}
+    }
+}
 
 function renderTaxMath(){
     return `
@@ -57,10 +57,9 @@ function renderTaxMath(){
 }
 
 function clearCart(){
-cart_contents.splice(0,cart_contents.length)
-console.log(cart_contents)
-cart_total = 0
-console.log(cart_total)
+    cart_contents.splice(0,cart_contents.length)
+    console.log(cart_contents)
+    cart_total = 0
 }
 
 
