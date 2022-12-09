@@ -41,7 +41,7 @@ renderMenuItems(){
             <img src="${menu_item.image_url}"><br>
             ${menu_item.name}: $${menu_item.price}
             <button class="add-button" id="${menu_item.id}">+</button><br>
-            ${menu_item.description}
+            <i>${menu_item.description}</i>
             `
     menu_items_list.appendChild(list_menu_item)})
     const addBtns = document.querySelectorAll(".add-button")

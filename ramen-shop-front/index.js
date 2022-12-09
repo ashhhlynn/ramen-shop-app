@@ -55,16 +55,34 @@ function addToCart(e){
     renderCart()
 }
 
+function renderTaxMath(){
+    return `
+    Subtotal: $${cart_total}<br>
+    Tax: $${Math.round(cart_total * 7)/100}<br>
+    <b>Total: $${(Math.round(cart_total * 7)/100) + cart_total}</b>`
+}
+
 function renderCart(){
     const cartContents = document.getElementById("cart-contents")
     let listItems = document.querySelectorAll("ul")
     for (var i = 0; i < listItems.length; i++ )
         { cartContents.innerHTML += `` }
+    const removeBtns = document.querySelectorAll(".remove-button")
+    removeBtns.forEach(button => button.addEventListener("click", e => removeFromCart(e)))
     const cartTotal = document.getElementById("cart-total")
-    
+    cartTotal.innerHTML = `${renderTaxMath()}`
+}
+
+
+function renderCarty(){
+    const cartContents = document.getElementById("cart-contents")
+    let listItems = document.querySelectorAll("ul")
+    for (var i = 0; i < listItems.length; i++ )
+        { cartContents.innerHTML += `` }
+    const cartTotal = document.getElementById("cart-total")
     let tax = taxMath(cart_total)
     cartTotal.innerHTML = `Subtotal: $${cart_total}<br>
-    + ${tax}<br>
+    + $${tax}<br>
     <b>Total: $${tax + cart_total}</b>`
     console.log(cart_total)   
     const removeBtns = document.querySelectorAll(".remove-button")

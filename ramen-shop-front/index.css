@@ -57,6 +57,7 @@ body{
     top: 0px;
     box-sizing: border-box;
     background: white;
+    border: black;
 }
 
 img {

@@ -35,10 +35,9 @@ static createOrder(e){
     let total = taxMath(cart_total) + cart_total 
     console.log(total)
 
-    const itemz = cart_contents.map(item => {
+    const items = cart_contents.map(item => {
     return {id: item.id}})
-    console.log(itemz)
-
+    console.log(items)
     fetch("http://localhost:3000/orders", {
     method: "POST",
     headers: { 
@@ -48,7 +47,7 @@ static createOrder(e){
     body: JSON.stringify({
     name: name,
     total: total,
-    items: itemz
+    items: items
     })})
     .then(resp=> resp.json())
     .then(function(json){
@@ -57,17 +56,22 @@ static createOrder(e){
     }) 
 }
 
+
 static renderOrder(order){
-    clearCart()
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
-    `<b>Thank you ${order.name}, your order ${order.id} is complete!</b><br><br>
-    <b>Total: $${order.total}<br><br>Items:<br></b>`
+    `<b>Your Order is Complete!<br><br>
+    Order #${order.id}<br>
+    Name: ${order.name}<br>
+    Total: $${order.total}<br><br>
+    Items:<br></b>`
     let listItems = document.querySelectorAll("ul")
     for (var i = 0; i < listItems.length; i++ )
     { let t = listItems[i].textContent
     console.log(t)   
     orderContents.innerHTML += `${t}<br>` }
+    orderContents.innerHTML += `<br>${renderTaxMath()}`
+    clearCart()
     const cancelOrderButton = document.getElementById("cancel-order-button");
     cancelOrderButton.addEventListener("click", e => Order.cancelOrder(order, e))
 }
@@ -88,7 +92,7 @@ static renderCancelOrder(){
     document.getElementById("cancel-order").hidden = true 
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
-    `<b>Thank you, your order is canceled!</b>`
+    `<b>Your Order is Canceled!</b>`
 }
 
 
