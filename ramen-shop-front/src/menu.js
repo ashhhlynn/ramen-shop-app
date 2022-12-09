@@ -17,7 +17,8 @@ static fetchMenus(){
         let menu_category = document.createElement("div");
         menu_category.innerHTML = `<button class="menu-button" id=${menu.id}>${menu.category}</button>`
         menus_list.appendChild(menu_category)
-        orderListeners()
+        const menuButton = document.querySelectorAll(".menu-button");
+        menuButton.forEach(button => button.addEventListener("click", e => Menu.renderMenus(e)))
         menu.menu_items.forEach(function(menu_item){
             m.menu_items.push(new MenuItem(menu_item.id, menu_item.name, menu_item.price, menu_item.description, menu_item.menu_id, menu_item.image_url))
             console.log(m.menu_items)})
@@ -45,7 +46,7 @@ renderMenuItems(){
             `
     menu_items_list.appendChild(list_menu_item)})
     const addBtns = document.querySelectorAll(".add-button")
-    addBtns.forEach(button => button.addEventListener('click', e => addToCart(e)))
+    addBtns.forEach(button => button.addEventListener('click', e => MenuItem.addToCart(e)))
 }
 
 

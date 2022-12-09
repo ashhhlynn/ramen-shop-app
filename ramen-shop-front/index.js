@@ -1,4 +1,5 @@
-const cart_contents = []
+
+const cart_contents = [];
 cart_total = 0
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -15,45 +16,44 @@ function startProgram(){
     checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
 }
 
-function orderListeners(){
-const menuButton = document.querySelectorAll(".menu-button");
-menuButton.forEach(button => button.addEventListener("click", e => Menu.renderMenus(e)))
-}
-
 function viewOne(show){
     document.getElementById("menus-list").hidden = show;
     document.getElementById("menu-items-list").hidden = show
-    document.getElementById("cart-contents").hidden = show
-    document.getElementById("cart-total").hidden = show
-    document.getElementById("checkout-order").hidden = show
+    document.getElementById("cart").hidden = show
     document.getElementById("cancel-order").hidden = !show
     document.getElementById("order-contents").hidden = !show
 }
 
 function viewTwo(show){
-    document.getElementById("checkout-contents").hidden = show;
-    document.getElementById("order-form").hidden = show;
-}
-
-function taxMath(){
-    return Math.round(cart_total * 7)/100
+    document.getElementById("checkout").hidden = show;
 }
 
 function addToCart(e){
     e.preventDefault()
     let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id) 
     console.log(e.target.previousSibling.textContent)
-        let cc = document.getElementById("cart-contents")
-        let cart_item = document.createElement("ul")
+    let cartContents = document.getElementById("cart-contents")
+        let cart_item = document.createElement("li")
         cart_item.id = `item-${menu_item.id}`
-        cart_item.innerHTML = `${e.target.previousSibling.textContent}
+        cart_item.title = `${e.target.previousSibling.textContent}`
+        cart_item.innerHTML = `${cart_item.title}
         <button class="remove-button" id=${menu_item.id}>-</button>`
-        cc.appendChild(cart_item)
+        cartContents.appendChild(cart_item)
     cart_contents.push(menu_item)
     console.log(cart_contents)
     cart_total += menu_item.price 
-    renderCart()
+    checkCartLength()
 }
+
+function checkCartLength(){
+const cartContents = document.getElementById("cart-contents")
+const cartTotal = document.getElementById("cart-total")
+    if (cart_contents.length == 0){
+        cartContents.innerHTML = `Your Cart is Empty!`
+        cartTotal.innerHTML = ``}
+    else {
+        renderCart()
+    }}
 
 function renderTaxMath(){
     return `
@@ -62,31 +62,17 @@ function renderTaxMath(){
     <b>Total: $${(Math.round(cart_total * 7)/100) + cart_total}</b>`
 }
 
+
 function renderCart(){
     const cartContents = document.getElementById("cart-contents")
-    let listItems = document.querySelectorAll("ul")
+    let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
         { cartContents.innerHTML += `` }
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => removeFromCart(e)))
-    const cartTotal = document.getElementById("cart-total")
-    cartTotal.innerHTML = `${renderTaxMath()}`
-}
-
-
-function renderCarty(){
-    const cartContents = document.getElementById("cart-contents")
-    let listItems = document.querySelectorAll("ul")
-    for (var i = 0; i < listItems.length; i++ )
-        { cartContents.innerHTML += `` }
-    const cartTotal = document.getElementById("cart-total")
-    let tax = taxMath(cart_total)
-    cartTotal.innerHTML = `Subtotal: $${cart_total}<br>
-    + $${tax}<br>
-    <b>Total: $${tax + cart_total}</b>`
-    console.log(cart_total)   
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => removeFromCart(e)))
+    
+        const cartTotal = document.getElementById("cart-total")
+        cartTotal.innerHTML = `${renderTaxMath()}`
+        const removeBtns = document.querySelectorAll(".remove-button")
+        removeBtns.forEach(button => button.addEventListener("click", e => removeFromCart(e)))
 }
 
 function removeFromCart(e){
@@ -99,7 +85,7 @@ function removeFromCart(e){
     let list_item = document.getElementById(`item-${item.id}`)
     console.log(list_item)
     list_item.remove()
-    renderCart()
+    checkCartLength()
 }
 
 function clearCart(){
@@ -108,3 +94,6 @@ console.log(cart_contents)
 cart_total = 0
 console.log(cart_total)
 }
+
+
+

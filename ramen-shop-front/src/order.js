@@ -32,7 +32,7 @@ static createOrder(e){
     viewTwo(true)
     e.preventDefault()
     let name = document.querySelector("#name").value
-    let total = taxMath(cart_total) + cart_total 
+    let total = (Math.round(cart_total * 7)/100) + cart_total
     console.log(total)
 
     const items = cart_contents.map(item => {
@@ -65,10 +65,9 @@ static renderOrder(order){
     Name: ${order.name}<br>
     Total: $${order.total}<br><br>
     Items:<br></b>`
-    let listItems = document.querySelectorAll("ul")
+    let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
-    { let t = listItems[i].textContent
-    console.log(t)   
+    { let t = listItems[i].title
     orderContents.innerHTML += `${t}<br>` }
     orderContents.innerHTML += `<br>${renderTaxMath()}`
     clearCart()
