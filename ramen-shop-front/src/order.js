@@ -8,7 +8,6 @@ constructor(id, name, total){
     this.items = []
 }
 
-
 static makeNewOrderForm(e){
     e.preventDefault()
     if (cart_contents.length == 0)
@@ -32,15 +31,16 @@ static makeNewOrderForm(e){
             form.appendChild(input)
             form.appendChild(submit)
         order_form.appendChild(form)
-        form.addEventListener("submit", e => Order.createOrder(e))
-        }}
+        form.addEventListener("submit", e => Order.createOrder(e))} }
 
 static createOrder(e){
+    e.preventDefault();
+
     viewOne(true) 
     viewTwo(true)
     e.preventDefault()
     let name = document.querySelector("#name").value
-    let total = (Math.round(cart_total * 7)/100) + cart_total
+    let total = taxMath()[1]
     console.log(total)
     const items = cart_contents.map(item => {
         return {id: item.id}})
@@ -58,7 +58,6 @@ static createOrder(e){
     })})
     .then(resp=> resp.json())
     .then(function(json){
-            console.log(json)
             Order.renderOrder(json)
     }) 
 }
@@ -80,7 +79,7 @@ static renderOrder(order){
     orderContents.innerHTML += `<br>${renderTaxMath()}`
     clearCart()
     const cancelOrderButton = document.getElementById("cancel-order-button");
-    cancelOrderButton.addEventListener("click", e => Order.cancelOrder(order, e))
+    cancelOrderButton.addEventListener("click", e => Order.cancelOrder(e))
 }
 
 static cancelOrder(order, e){

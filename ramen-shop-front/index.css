@@ -1,93 +1,98 @@
-body{
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    font-size: 16px;
-    color: 	#5d5d5d;
-    background-color: #F0F0F0
-}
-
-.menus-list{
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    box-sizing: border-box;
-    border: black;
-    background: white;
-    margin-top: 8px;
-    line-height: 19.2px;
-    color: 	#5d5d5d;
-    width: 150px;
-    height: 500px;
-}
-
-.menu-items-list{
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    box-sizing: border-box;
-    border: black; 
-    background: white;
-    margin-top: 8px;
-    line-height: 19.2px;
-    color: 	#5d5d5d;
-    width: 700px;    
-    position: relative;
-    left: 150px;
-    bottom: 507px;
-}
-
-.cart{
-    font-family: "UniversLTStd-BoldCn", sans-serif;     
-    text-align: center;
-    float: center;
-    margin-top: 8px;    
-    color: 	#5d5d5d;
-    line-height: 19.2px;
-    width: 300px;
-    height: 590px;
-    max-height: 590px;
-    position: absolute;
-    right: 22px;
-    top: 17px;
-    background: white ;
-    }
 h3{
     text-align: center;
     font-weight: 400;
     font-size: 25px;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     text-transform: uppercase;
-
-    padding: 1.5em 0 1.5em;
+    margin-top: 8px;
+    padding: .5em 0 .5em;
 }
+
+
+body{
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    font-size: 16px;
+    color: 	#5d5d5d;
+    background-color: white;
+    max-height: max-content
+
+}
+
+.container{
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    box-sizing: border-box;
+    border: black;
+    background: #F0f0f0;
+    margin-top: 10px;
+    line-height: 19.2px;
+    color: 	#5d5d5d;
+    width: 950px;
+    max-height: 800px
+}
+
+
+
+.menu-items-list{
+    margin-top: 20px;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    position: relative;
+    top: -520px;
+    left: 200px;
+
+    max-height: inherit;
+
+}
+
+
+
+
+.cart{
+    font-family: "UniversLTStd-BoldCn", sans-serif;     
+    text-align: center;
+    margin-top: 8px;    
+    color: 	#5d5d5d;
+    line-height: 19.2px;
+    width: 250px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    background: white ;
+    overflow-y: scroll;
+    }
 
 
 
 
 .order{
     text-align: center;
-}
-.order-contents{
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    color: 	#5d5d5d;
-    width: 900px;
-    height: 590px;
     position: relative;
     left: 0px;
     top: 0px;
+    width: 900px;
+    height: 590px;
     box-sizing: border-box;
-    background: white;
-    text-align: left;
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    color: 	#5d5d5d;
+    text-align: center;
 }
 
 
+
 .menu-button{
-    margin: 8px;
     font-weight: 400px;
     font-size: 20px;
     background: #F8F8F8;
     color:    #5d5d5d;
-    text-align: left;
+    text-align: right;
     line-height: 19.2px;
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     margin-bottom: 2em;
-    padding: 1em 1em 1em 1em;
+    padding: .5em 1em .5em;
     border: gray;
+    width: 110px;
+    height: 60px;
  }
 
  .key-button{
@@ -107,20 +112,20 @@ h3{
 
 .card{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
-    color: 	#5d5d5d;
-    width: 90px;
-    height: 50px;
-    display: inline-block;
-    border-radius: 15px; 
+    width: 220px;
+    display: table;
+    height: 220px;
     box-sizing: border-box;
-    background: white;
-    border: black;
-}
+    border: #313131;
+    background: #F0f0f0;
+    color: gray;
+    }    
 
-img {
-    height: 30%;
-    width: 30%;
-  }
+img{
+    height: 147px;
+    width: 220px;
+
+}
 
 .add-button{
     border-color: #313131;

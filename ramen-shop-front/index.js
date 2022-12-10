@@ -17,8 +17,7 @@ function startProgram(){
 }
 
 function oView(show){
-    document.getElementById("menus-list").hidden = !show;
-    document.getElementById("menu-items-list").hidden = !show
+    document.getElementById("container").hidden = !show;
     document.getElementById("cart").hidden = !show
     document.getElementById("cancel-order").hidden = !show
     document.getElementById("order-contents").hidden = !show
@@ -26,8 +25,7 @@ function oView(show){
 }
 
 function viewOne(show){
-    document.getElementById("menus-list").hidden = show;
-    document.getElementById("menu-items-list").hidden = show
+    document.getElementById("container").hidden = show;
     document.getElementById("cart").hidden = show
     document.getElementById("cancel-order").hidden = !show
     document.getElementById("order-contents").hidden = !show
@@ -49,11 +47,16 @@ const cartTotal = document.getElementById("cart-total")
     }
 }
 
+function taxMath(){
+    return [Math.round(cart_total * 7)/100, Math.round(cart_total * 7)/100 + cart_total]
+}
+
 function renderTaxMath(){
-    return `
+    const [tax, real_total] = taxMath()
+   return `
     Subtotal: $${cart_total}<br>
-    Tax: $${Math.round(cart_total * 7)/100}<br>
-    <b>Total: $${(Math.round(cart_total * 7)/100) + cart_total}</b>`
+    Tax: $${tax}<br>
+    <b>Total: $${real_total}</b>`   
 }
 
 function clearCart(){
@@ -64,3 +67,9 @@ function clearCart(){
 
 
 
+function renderyTaxMath(){
+    return `
+    Subtotal: $${cart_total}<br>
+    Tax: $${Math.round(cart_total * 7)/100}<br>
+    <b>Total: $${(Math.round(cart_total * 7)/100) + cart_total}</b>`
+}
