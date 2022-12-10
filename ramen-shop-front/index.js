@@ -65,11 +65,3 @@ function clearCart(){
     cart_total = 0
 }
 
-
-
-function renderyTaxMath(){
-    return `
-    Subtotal: $${cart_total}<br>
-    Tax: $${Math.round(cart_total * 7)/100}<br>
-    <b>Total: $${(Math.round(cart_total * 7)/100) + cart_total}</b>`
-}

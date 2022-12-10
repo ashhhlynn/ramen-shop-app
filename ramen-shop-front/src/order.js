@@ -1,11 +1,11 @@
 class Order {
 
 
-constructor(id, name, total){
+constructor(id, name, total, items){
     this.id = id;
     this.name = name;
     this.total = total;
-    this.items = []
+    this.items = items;
 }
 
 static makeNewOrderForm(e){
@@ -35,7 +35,6 @@ static makeNewOrderForm(e){
 
 static createOrder(e){
     e.preventDefault();
-
     viewOne(true) 
     viewTwo(true)
     e.preventDefault()
@@ -58,18 +57,20 @@ static createOrder(e){
     })})
     .then(resp=> resp.json())
     .then(function(json){
-            Order.renderOrder(json)
+       let order = new Order(json.id, json.name, json.total, json.items)
+       console.log(order)
+       order.renderOrder()
     }) 
 }
 
 
-static renderOrder(order){
+renderOrder(){
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
     `<b>Your Order is Complete!<br><br>
-    Order #${order.id}<br>
-    Name: ${order.name}<br>
-    Total: $${order.total}<br><br>
+    Order #${this.id}<br>
+    Name: ${this.name}<br>
+    Total: $${this.total}<br><br>
     Items:<br></b>`
     let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
@@ -79,22 +80,21 @@ static renderOrder(order){
     orderContents.innerHTML += `<br>${renderTaxMath()}`
     clearCart()
     const cancelOrderButton = document.getElementById("cancel-order-button");
-    cancelOrderButton.addEventListener("click", e => Order.cancelOrder(e))
+    cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
 }
 
-static cancelOrder(order, e){
-    e.preventDefault()
-    console.log(order.id)
-    fetch("http://localhost:3000/orders"+`/${order.id}`, {
+cancelOrder(e){
+    e.preventDefault
+    fetch("http://localhost:3000/orders"+`/${this.id}`, {
         method: "DELETE",
         headers: { 
         "Content-Type": "application/json",
         "Accept": "application/json"
         }})
-    Order.renderCancelOrder()
+  this.renderCancelOrder()
 }
 
-static renderCancelOrder(){
+renderCancelOrder(){
     document.getElementById("cancel-order").hidden = true 
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 

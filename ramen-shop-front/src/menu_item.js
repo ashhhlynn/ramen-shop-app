@@ -2,20 +2,19 @@ class MenuItem{
 
 static all = [];
 
-
 constructor(id, name, price, description, menu_id, image_url){
 this.id = id;
 this.name = name;
 this.price = price;
 this.description = description;
-this.menu_id = menu_id
+this.menu_id = menu_id;
 this.image_url = image_url;
 MenuItem.all.push(this);
 }
  
 static addToCartDom(e){
     e.preventDefault()
-    console.log(e.target.previousSibling.textContent)
+    let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id)
     let cartContents = document.getElementById("cart-contents")
         let cart_item = document.createElement("li")
         cart_item.id = `item-${e.target.id}`
@@ -23,15 +22,13 @@ static addToCartDom(e){
         cart_item.innerHTML = `${cart_item.title}
         <button class="remove-button" id=${e.target.id}>-</button>`
     cartContents.appendChild(cart_item)
-    console.log(this)
-    this.addToCartConstant(e.target.id)
+    menu_item.addToCartConstant()
 }
 
-static addToCartConstant(id){
-    let menu_item = MenuItem.all.find(menu_item => menu_item.id == id) 
-    cart_contents.push(menu_item)
+addToCartConstant(){
+    cart_contents.push(this)
     console.log(cart_contents)
-    cart_total += menu_item.price 
+    cart_total += this.price 
     checkCartLength()
 }
 
@@ -48,15 +45,15 @@ static renderCart(){
 
 static removeFromCartDom(e){
     e.preventDefault()
+    let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id);
     let list_item = document.getElementById(`item-${e.target.id}`)
     console.log(list_item)
     list_item.remove()
-    MenuItem.removeFromCartConstant(e.target.id)}
+    menu_item.removeFromCartConstant()}
 
-static removeFromCartConstant(id){
-    let menu_item = MenuItem.all.find(menu_item => menu_item.id == id);
-    cart_total -= menu_item.price 
-    const index = cart_contents.indexOf(menu_item);
+removeFromCartConstant(){
+    cart_total -= this.price 
+    const index = cart_contents.indexOf(this);
     cart_contents.splice(index, 1)
     console.log(cart_contents)
     checkCartLength()
