@@ -9,11 +9,12 @@ constructor(id, name, total, items){
 
 static makeNewOrderForm(){
     if (checkCartLength()){
-            alert("Your cart is empty!")}
+            alert("Your cart is empty!")
+        }
     else{
         document.getElementById("order-form").hidden = false
         document.getElementById("checkout-order-button").disabled = true;
-        let order_form = document.getElementById("order-form")
+        const order_form = document.getElementById("order-form")
             let form = document.createElement("form")
                 let input = document.createElement("input")
                 input.id = 'name'
@@ -34,53 +35,58 @@ static makeNewOrderForm(){
 static createOrder(e){
     e.preventDefault();
     if (checkCartLength()){
-        alert("Your cart is empty!")}
+        alert("Your cart is empty!")
+    }
     else{
-    viewOne(true) 
-        let name = document.querySelector("#name").value
-        let total = taxMath()[1]
+        hideOrShow(true) 
         const items = cart_contents.map(item => {
         return {id: item.id}
         })
-    console.log(total)
-    console.log(items)
-    fetch("http://localhost:3000/orders", {
-        method: "POST",
-        headers: { 
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-        },
-        body: JSON.stringify({
-        name: name, total: total, items: items
+        console.log(items)
+        fetch("http://localhost:3000/orders", {
+            method: "POST",
+            headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            },
+            body: JSON.stringify({
+            name: document.querySelector("#name").value, 
+            total: taxMath()[1], 
+            items: items
+            })
         })
-    })
-    .then(resp => resp.json())
-    .then(function(json){
-       let order = new Order(json.id, json.name, json.total, json.items)
-       console.log(order)
-       order.renderOrder()
-    })}
+        .then(function(resp){
+            return resp.json();
+        })
+        .then(function(json){
+            let order = new Order(json.id, json.name, json.total, json.items)
+            console.log(order)
+            order.renderOrder()
+        })
+        .catch(function(error) {
+            alert("There were errors processing your order");
+            console.log(error.message);
+        })
+    }
 }
 
 renderOrder(){
-    let form = document.querySelector('form')
-    form.reset()
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
-    `<b>Your Order is Complete!<br><br>
-    Order #${this.id}<br>
-    Name: ${this.name}<br>
-    Total: $${this.total}<br><br>
-    Items:<br></b>`
+        `<b>Your Order is Complete!<br><br>
+        Order #${this.id}<br>
+        Name: ${this.name}<br>
+        Total: $${this.total}<br><br>
+        Items:<br></b>`
     let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
         { let t = listItems[i].title
         orderContents.innerHTML += `${t}<br>` 
         }
     orderContents.innerHTML += `<br>${renderTaxMath()}`
-    clearCart()
     const cancelOrderButton = document.getElementById("cancel-order-button");
     cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
+    clearCartAndContainers()
 }
 
 cancelOrder(e){
@@ -92,11 +98,9 @@ cancelOrder(e){
         "Accept": "application/json"
         },
     })
-  alert("Your order is canceled")
-  document.getElementById("order").hidden = true 
-  document.getElementById("start").hidden = false
+    alert("Your order is canceled")
+    document.getElementById("order").hidden = true
+    clearCartAndContainers()
 }
-
-
 
 }

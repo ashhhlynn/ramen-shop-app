@@ -8,25 +8,28 @@ constructor(id, category){
     this.menu_items = []
 }
     
-static fetchMenus(){
+static fetchMenus(){ 
+    hideOrShow(false)
+    const orderContents = document.getElementById("order-contents")
+    orderContents.innerHTML = ``
     fetch("http://localhost:3000/menus")
     .then(resp => resp.json())
     .then(function(menus){
-        menus.forEach(function(menu){
-            let m = (new Menu(menu.id, menu.category))
-            Menu.all.push(m)
-            menu.menu_items.forEach(function(menu_item){
-                m.menu_items.push(new MenuItem(menu_item.id, menu_item.name, menu_item.price, menu_item.description, menu_item.menu_id, menu_item.image_url))
+        menus.forEach(function(menuObj){
+            let menu = (new Menu(menuObj.id, menuObj.category))
+            Menu.all.push(menu)
+            menuObj.menu_items.forEach(function(menu_item){
+                menu.menu_items.push(new MenuItem(menu_item.id, menu_item.name, menu_item.price, menu_item.description, menu_item.menu_id, menu_item.image_url))
             })
-            m.renderMenus()
+            menu.renderMenus()
         })
     })
 }
 
 renderMenus(){
-    let menus_list = document.getElementById("menu-list")
-    let menu_buttons = document.createElement("div");
-    menu_buttons.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
+    const menus_list = document.getElementById("menu-list")
+        let menu_buttons = document.createElement("div");
+        menu_buttons.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
     menus_list.appendChild(menu_buttons)
     listenButton()
 }
@@ -49,4 +52,3 @@ static renderMenuItems(e){
 }
 
 }
-  

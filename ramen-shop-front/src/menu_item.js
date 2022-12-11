@@ -14,7 +14,7 @@ constructor(id, name, price, description, menu_id, image_url){
  
 static addToCartDom(e){
     let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id)
-    let cartContents = document.getElementById("cart-contents")
+    const cartContents = document.getElementById("cart-contents")
         let cart_item = document.createElement("li")
         cart_item.id = `item-${e.target.id}`
         cart_item.title = `${e.target.previousSibling.textContent}`
@@ -39,7 +39,7 @@ static renderCart(){
         {cartContents.innerHTML += ``}
     const cartTotal = document.getElementById("cart-total")
     if (checkCartLength())
-        {cartTotal.innerHTML= `Empty`}
+        {cartTotal.innerHTML= `Your cart is empty`}
     else 
         {cartTotal.innerHTML = `${renderTaxMath()}`}
     listenButtonTwo()
@@ -48,21 +48,15 @@ static renderCart(){
 static removeFromCartDom(e){
     document.getElementById(`item-${e.target.id}`).remove()
     let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id);
-    menu_item.removeFromCartConstant()}
+    menu_item.removeFromCartConstant()
+}
 
 removeFromCartConstant(){
     cart_total -= this.price 
-    const index = cart_contents.indexOf(this);
-    cart_contents.splice(index, 1)
+    cart_contents.splice(cart_contents.indexOf(this), 1)
     console.log(cart_contents)
     alert("Removed from cart")
     MenuItem.renderCart()
-}
-
-blanktest(){
-    let list_item = document.getElementById(`item-${e.target.id}`)
-    console.log(list_item)
-    list_item.remove()
 }
 
 }

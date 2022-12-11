@@ -1,7 +1,7 @@
 h3{
     text-align: center;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 32px;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     text-transform: uppercase;
     margin-top: 8px;
@@ -13,37 +13,41 @@ body{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     font-size: 16px;
     color: 	#5d5d5d;
-    background-color: white;
-    max-height: max-content
+    background-image: url("https://b.zmtcdn.com/data/pictures/chains/0/16581860/fd4b88d6ee61e187ac4f3760cda630f0_featured_v2.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*")
+    ;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;
+    background-attachment: fixed;
+ 
 }
 
 .container{
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     box-sizing: border-box;
+    size: cover;
     border: black;
     background: #F0f0f0;
+    opacity: 90%;
     margin-top: 10px;
+    margin-bottom: 10px;
     line-height: 19.2px;
     color: 	#5d5d5d;
-    width: 950px;
-    max-height: 800px
 }
 
 .menu-items-list{
-    margin-top: 20px;
     display: inline-grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     position: relative;
     top: -520px;
     left: 200px;
-    max-height: inherit;
 }
 
 .cart{
     font-family: "UniversLTStd-BoldCn", sans-serif;     
     text-align: center;
-    margin-top: 8px;    
+    margin-top: 10px;    
     color: 	#5d5d5d;
     line-height: 19.2px;
     width: 250px;
@@ -61,10 +65,11 @@ body{
     border: black;
     background: #F0f0f0;
     line-height: 19.2px;
-    color: gray;
+    color: black;
     width: 700px;
     margin-left: auto;
     margin-right: auto;
+    opacity: 90%;
 }
 
 .menu-button{
@@ -82,7 +87,28 @@ body{
     height: 60px;
  }
 
- .key-button{
+ .start {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    opacity: 70%;
+ }
+
+ .start-button{
+    margin: 8px;
+    font-weight: 400px;
+    font-size: 35px;
+    background: #F8F8F8;
+    color:    #5d5d5d;
+    text-align: left;
+    line-height: 19.2px;
+    font-family: "UniversLTStd-BoldCn", sans-serif;  
+    margin-bottom: 2em;
+    padding: 1em 1em 1em 1em;
+    border: gray;
+}
+
+.key-button{
     margin: 8px;
     font-weight: 400px;
     font-size: 20px;

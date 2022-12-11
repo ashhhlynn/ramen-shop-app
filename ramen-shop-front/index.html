@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-    <script src="index.js" charset="utf-8"></script>
-    <script src="src/menu.js" charset="utf-8"></script>
-    <script src="src/menu_item.js" charset="utf-8"></script>
-    <script src="src/order.js" charset="utf-8"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+      <script src="index.js" charset="utf-8"></script>
+      <script src="src/menu.js" charset="utf-8"></script>
+      <script src="src/menu_item.js" charset="utf-8"></script>
+      <script src="src/order.js" charset="utf-8"></script>
+  </head>
 
-<body>
+  <body>
 
-<div id="start" class="start">
-<button class="key-button" id="start-button">Start Order</button>
-</div>
+    <div id="start" class="start">
+      <button class="start-button" id="start-button">Start Order</button>
+    </div>
 
-<div id="container" class="container" hidden>
-<h3>Menu</h3>
-<div id="menu-list" class="menu-list">
-</div>
-<div id="menu-items-list" class="menu-items-list">
-</div>
-</div>
+    <div id="container" class="container" hidden>
+      <h3>Menu</h3>
+        <div id="menu-list" class="menu-list">
+        </div>
+        <div id="menu-items-list" class="menu-items-list">
+        </div>
+    </div>
 
-<div id="cart" class="cart" hidden>
-<h3>Order</h3>
-<div id ="cart-contents" class="cart-contents"> 
-</div>
-<div id ="cart-total" class="cart-total"> 
-</div>
-<div id= "checkout-order" class="checkout-order">
-<button class="key-button" id="checkout-order-button">checkout</button>
-</div>
-<div id="order-form" class ="order-form">
-</div>
-</div>
+    <div id="cart" class="cart" hidden>
+      <h3>Order</h3>
+        <div id ="cart-contents" class="cart-contents"> 
+        </div>
+        <div id ="cart-total" class="cart-total"> 
+        </div>
+        <div id= "checkout-order" class="checkout-order">
+          <button class="key-button" id="checkout-order-button">checkout</button>
+        </div>
+        <div id="order-form" class ="order-form">
+        </div>
+    </div>
 
-<div id="order" class="order" hidden>
-<div id ="order-contents" class="order-contents"> 
-</div>
-<div id= "cancel-order" class="cancel-order">
-<button class="key-button" id="cancel-order-button">cancel order</button> 
-</div>
-</div>
+  <div id="order" class="order" hidden>
+    <div id="order-contents" class ="order-contents">
+      <h3>Your Order</h3>
+    </div>
+    <div id= "cancel-order" class="cancel-order">
+      <button class="key-button" id="cancel-order-button">cancel order</button> 
+    </div>
+  </div>
 
 </body>
 </html>
