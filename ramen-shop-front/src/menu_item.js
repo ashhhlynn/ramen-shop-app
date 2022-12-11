@@ -28,6 +28,7 @@ addToCartConstant(){
     cart_contents.push(this)
     console.log(cart_contents)
     cart_total += this.price 
+    alert("Added to cart")
     MenuItem.renderCart()
 }
 
@@ -41,12 +42,7 @@ static renderCart(){
         {cartTotal.innerHTML= `Empty`}
     else 
         {cartTotal.innerHTML = `${renderTaxMath()}`}
-    MenuItem.listenButtonTwo()
-}
-
-static listenButtonTwo(){
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCartDom(e)))
+    listenButtonTwo()
 }
 
 static removeFromCartDom(e){
@@ -59,6 +55,7 @@ removeFromCartConstant(){
     const index = cart_contents.indexOf(this);
     cart_contents.splice(index, 1)
     console.log(cart_contents)
+    alert("Removed from cart")
     MenuItem.renderCart()
 }
 

@@ -8,10 +8,10 @@ constructor(id, name, total, items){
 }
 
 static makeNewOrderForm(){
-    if (checkCartLength())
-        {MenuItem.renderCart()}
+    if (checkCartLength()){
+            alert("Your cart is empty!")}
     else{
-viewTwo(false)
+        document.getElementById("order-form").hidden = false
         document.getElementById("checkout-order-button").disabled = true;
         let order_form = document.getElementById("order-form")
             let form = document.createElement("form")
@@ -33,33 +33,38 @@ viewTwo(false)
 
 static createOrder(e){
     e.preventDefault();
-viewOne(true) 
-viewTwo(true)
-    let name = document.querySelector("#name").value
-    let total = taxMath()[1]
-    const items = cart_contents.map(item => {
+    if (checkCartLength()){
+        alert("Your cart is empty!")}
+    else{
+    viewOne(true) 
+        let name = document.querySelector("#name").value
+        let total = taxMath()[1]
+        const items = cart_contents.map(item => {
         return {id: item.id}
         })
-console.log(total)
-console.log(items)
+    console.log(total)
+    console.log(items)
     fetch("http://localhost:3000/orders", {
         method: "POST",
         headers: { 
         "Content-Type": "application/json",
         "Accept": "application/json"
         },
-        body: JSON.stringify(
-        {name: name, total: total, items: items}
-    )})
-    .then(resp=> resp.json())
+        body: JSON.stringify({
+        name: name, total: total, items: items
+        })
+    })
+    .then(resp => resp.json())
     .then(function(json){
        let order = new Order(json.id, json.name, json.total, json.items)
-console.log(order)
+       console.log(order)
        order.renderOrder()
-    }) 
+    })}
 }
 
 renderOrder(){
+    let form = document.querySelector('form')
+    form.reset()
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
     `<b>Your Order is Complete!<br><br>
@@ -85,17 +90,13 @@ cancelOrder(e){
         headers: { 
         "Content-Type": "application/json",
         "Accept": "application/json"
-        }
+        },
     })
-  this.renderCancelOrder()
+  alert("Your order is canceled")
+  document.getElementById("order").hidden = true 
+  document.getElementById("start").hidden = false
 }
 
-renderCancelOrder(){
-document.getElementById("cancel-order").hidden = true 
-    const orderContents = document.getElementById("order-contents")
-    orderContents.innerHTML = 
-    `<b>Your Order is Canceled!</b>`
-}
 
 
 }

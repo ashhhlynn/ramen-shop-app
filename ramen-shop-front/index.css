@@ -15,7 +15,6 @@ body{
     color: 	#5d5d5d;
     background-color: white;
     max-height: max-content
-
 }
 
 .container{
@@ -30,8 +29,6 @@ body{
     max-height: 800px
 }
 
-
-
 .menu-items-list{
     margin-top: 20px;
     display: inline-grid;
@@ -40,13 +37,8 @@ body{
     position: relative;
     top: -520px;
     left: 200px;
-
     max-height: inherit;
-
 }
-
-
-
 
 .cart{
     font-family: "UniversLTStd-BoldCn", sans-serif;     
@@ -60,25 +52,20 @@ body{
     top: 0px;
     background: white ;
     overflow-y: scroll;
-    }
-
-
-
-
-.order{
-    text-align: center;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 900px;
-    height: 590px;
-    box-sizing: border-box;
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    color: 	#5d5d5d;
-    text-align: center;
 }
 
-
+.order{
+    font-family: "UniversLTStd-BoldCn", sans-serif; 
+    text-align: center;
+    box-sizing: border-box;
+    border: black;
+    background: #F0f0f0;
+    line-height: 19.2px;
+    color: gray;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .menu-button{
     font-weight: 400px;
@@ -109,7 +96,6 @@ body{
     border: gray;
 }
 
-
 .card{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     width: 220px;
@@ -124,7 +110,6 @@ body{
 img{
     height: 147px;
     width: 220px;
-
 }
 
 .add-button{
