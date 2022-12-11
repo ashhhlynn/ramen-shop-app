@@ -1,5 +1,6 @@
 const cart_contents = [];
-cart_total = 0
+cart_total = 0;
+
 
 document.addEventListener("DOMContentLoaded", function(){
     oView(false)
@@ -35,17 +36,11 @@ function viewTwo(show){
     document.getElementById("checkout").hidden = show;
 }
 
+
 function checkCartLength(){
-const cartContents = document.getElementById("cart-contents")
-const cartTotal = document.getElementById("cart-total")
-    if (cart_contents.length == 0){
-        cartContents.innerHTML = `Your Cart is Empty!`
-        cartTotal.innerHTML = ``
-    }
-    else {
-        MenuItem.renderCart()
-    }
-}
+if (cart_contents.length == 0){
+    return true
+}}
 
 function taxMath(){
     return [Math.round(cart_total * 7)/100, Math.round(cart_total * 7)/100 + cart_total]
@@ -65,3 +60,14 @@ function clearCart(){
     cart_total = 0
 }
 
+
+
+
+function checkCartyLength(){
+    const cartContents = document.getElementById("cart-contents");
+    const cartTotal = document.getElementById("cart-total");
+    if (cart_contents.length == 0){
+        cartContents.innerHTML = `Your Cart is Empty!`
+        cartTotal.innerHTML = ``
+    }
+}

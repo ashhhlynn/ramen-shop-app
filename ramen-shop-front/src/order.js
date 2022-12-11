@@ -1,6 +1,5 @@
 class Order {
 
-
 constructor(id, name, total, items){
     this.id = id;
     this.name = name;
@@ -10,13 +9,11 @@ constructor(id, name, total, items){
 
 static makeNewOrderForm(e){
     e.preventDefault()
-    if (cart_contents.length == 0)
+    if (checkCartLength())
         {MenuItem.renderCart()}
     else{
-        viewTwo(false)
+viewTwo(false)
         document.getElementById("checkout-order-button").disabled = true;
-        let checkoutContents = document.getElementById("checkout-contents")
-        checkoutContents.innerHTML = `Review Your Order:`
         let order_form = document.getElementById("order-form")
             let form = document.createElement("form")
                 let input = document.createElement("input")
@@ -26,43 +23,42 @@ static makeNewOrderForm(e){
                 input.required = true 
                 let submit = document.createElement("button")
                 submit.type = "submit"
-                submit.id = 'sub-button'
+                submit.id = "submit"
                 submit.innerText = "place order"
             form.appendChild(input)
             form.appendChild(submit)
         order_form.appendChild(form)
-        form.addEventListener("submit", e => Order.createOrder(e))} }
+        form.addEventListener("submit", e => Order.createOrder(e))
+    }
+}
 
 static createOrder(e){
     e.preventDefault();
-    viewOne(true) 
-    viewTwo(true)
-    e.preventDefault()
+viewOne(true) 
+viewTwo(true)
     let name = document.querySelector("#name").value
     let total = taxMath()[1]
-    console.log(total)
     const items = cart_contents.map(item => {
-        return {id: item.id}})
-    console.log(items)
+        return {id: item.id}
+        })
+console.log(total)
+console.log(items)
     fetch("http://localhost:3000/orders", {
         method: "POST",
         headers: { 
         "Content-Type": "application/json",
         "Accept": "application/json"
         },
-        body: JSON.stringify({
-        name: name,
-        total: total,
-        items: items
-    })})
+        body: JSON.stringify(
+        {name: name, total: total, items: items}
+    )})
     .then(resp=> resp.json())
     .then(function(json){
        let order = new Order(json.id, json.name, json.total, json.items)
-       console.log(order)
+console.log(order)
        order.renderOrder()
     }) 
 }
-
 
 renderOrder(){
     const orderContents = document.getElementById("order-contents")
@@ -90,12 +86,13 @@ cancelOrder(e){
         headers: { 
         "Content-Type": "application/json",
         "Accept": "application/json"
-        }})
+        }
+    })
   this.renderCancelOrder()
 }
 
 renderCancelOrder(){
-    document.getElementById("cancel-order").hidden = true 
+document.getElementById("cancel-order").hidden = true 
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
     `<b>Your Order is Canceled!</b>`
