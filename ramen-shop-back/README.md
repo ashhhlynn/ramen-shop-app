@@ -1,24 +1,18 @@
 # README
+Ramen Shop App:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ramen Shop App is a mock ramen restaurant ordering application. The app is built with a RailsAPI and a JS front end. 
 
-Things you may want to cover:
+Installation: 
 
-* Ruby version
+Fork and clone both repos, ramen-shop-back and ramen-shop-front. 
 
-* System dependencies
+Cd into the backend
+    - Bundle install
+    - Run rails db:create
+    - Run rails db:migrate
+    - Run rails db:seed
+    - Start server with rails s
+Cd into the frontend 
+    - Run open index.html
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
