@@ -13,7 +13,6 @@ constructor(id, name, price, description, menu_id, image_url){
 }
  
 static addToCartDom(e){
-    e.preventDefault()
     let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id)
     let cartContents = document.getElementById("cart-contents")
         let cart_item = document.createElement("li")
@@ -51,7 +50,6 @@ static listenButtonTwo(){
 }
 
 static removeFromCartDom(e){
-    e.preventDefault()
     document.getElementById(`item-${e.target.id}`).remove()
     let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id);
     menu_item.removeFromCartConstant()}

@@ -35,11 +35,9 @@ static listenButton(){
 }
 
 static renderMenuItems(e){  
-    e.preventDefault()
     let menu = Menu.all.find(menu => menu.id == e.target.id) 
     const menu_items_list = document.getElementById("menu-items-list")
     menu_items_list.innerHTML = ""
-
     menu.menu_items.forEach(menu_item => { 
             let list_menu_item = document.createElement("div");
             list_menu_item.className = "card"

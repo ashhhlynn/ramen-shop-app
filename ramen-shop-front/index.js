@@ -59,15 +59,3 @@ function clearCart(){
     console.log(cart_contents)
     cart_total = 0
 }
-
-
-
-
-function checkCartyLength(){
-    const cartContents = document.getElementById("cart-contents");
-    const cartTotal = document.getElementById("cart-total");
-    if (cart_contents.length == 0){
-        cartContents.innerHTML = `Your Cart is Empty!`
-        cartTotal.innerHTML = ``
-    }
-}

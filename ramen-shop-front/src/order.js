@@ -7,8 +7,7 @@ constructor(id, name, total, items){
     this.items = items;
 }
 
-static makeNewOrderForm(e){
-    e.preventDefault()
+static makeNewOrderForm(){
     if (checkCartLength())
         {MenuItem.renderCart()}
     else{
