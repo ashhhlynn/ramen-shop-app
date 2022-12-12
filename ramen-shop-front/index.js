@@ -1,13 +1,15 @@
-const cart_contents = [];
 cart_total = 0;
 
 document.addEventListener("DOMContentLoaded", function(){
-startProgram()
+    const startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", startProgram)
 })
 
 function startProgram(){ 
-    const startButton = document.getElementById("start-button");
-    startButton.addEventListener("click", Menu.fetchMenus)
+    Menu.fetchMenus()
+    hideOrShow(false)
+    const orderContents = document.getElementById("order-contents")
+    orderContents.innerHTML = ``
     const checkoutOrderButton = document.getElementById("checkout-order-button");
     checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
 }
@@ -20,20 +22,9 @@ function hideOrShow(show){
     document.getElementById("order-form").hidden = !show;
 }
 
-function listenButton(){
-    const menuButton = document.querySelectorAll(".menu-button");
-    menuButton.forEach(button => button.addEventListener("click", e => Menu.renderMenuItems(e)))
-    const addBtns = document.querySelectorAll(".add-button")
-    addBtns.forEach(button => button.addEventListener('click', e => MenuItem.addToCartDom(e)))
-}
-
-function listenButtonTwo(){
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCartDom(e)))
-}
-
-function checkCartLength(){
-    if (cart_contents.length == 0){
+function checkLiLength(){
+    let listItems = document.querySelectorAll("li")
+    if (listItems.length == 0){
         return true
     }
 }
@@ -43,16 +34,15 @@ function taxMath(){
 }
 
 function renderTaxMath(){
-   const [tax, real_total] = taxMath()
+   const [tax, realTotal] = taxMath()
    return `
    Subtotal: $${cart_total}<br>
    Tax: $${tax}<br>
-   <b>Total: $${real_total}</b>
+   <b>Total: $${realTotal}</b>
    `   
 }
 
 function clearCartAndContainers(){
-    cart_contents.splice(0,cart_contents.length);
     cart_total = 0;
     removeAllChildNodes(document.querySelector('#menu-list'));
     removeAllChildNodes(document.querySelector('#menu-items-list'))
@@ -66,4 +56,21 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+
+function checkCartLength(){
+    if (cart_contents.length == 0){
+        return true
+    }
+}
+
+function listenButton(){
+    const addBtns = document.querySelectorAll(".add-button")
+    addBtns.forEach(button => button.addEventListener('click', e => MenuItem.addToCartDom(e)))
+}
+
+function listenButtonTwo(){
+    const removeBtns = document.querySelectorAll(".remove-button")
+    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCartDom(e)))
 }

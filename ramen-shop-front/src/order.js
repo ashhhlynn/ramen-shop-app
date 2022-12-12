@@ -7,14 +7,20 @@ constructor(id, name, total, items){
     this.items = items;
 }
 
+static checkOrderEligible(){
+ if (scheckLiLength()){
+    alert("Your cart is empty!")
+    return false }
+}
+
 static makeNewOrderForm(){
-    if (checkCartLength()){
-            alert("Your cart is empty!")
-        }
+    if (checkLiLength()){
+        alert("Your cart is empty!")
+    }
     else{
         document.getElementById("order-form").hidden = false
         document.getElementById("checkout-order-button").disabled = true;
-        const order_form = document.getElementById("order-form")
+        const orderForm = document.getElementById("order-form")
             let form = document.createElement("form")
                 let input = document.createElement("input")
                 input.id = 'name'
@@ -27,22 +33,22 @@ static makeNewOrderForm(){
                 submit.innerText = "place order"
             form.appendChild(input)
             form.appendChild(submit)
-        order_form.appendChild(form)
+        orderForm.appendChild(form)
         form.addEventListener("submit", e => Order.createOrder(e))
     }
 }
 
 static createOrder(e){
     e.preventDefault();
-    if (checkCartLength()){
+    if (checkLiLength()){
         alert("Your cart is empty!")
     }
     else{
         hideOrShow(true) 
-        const items = cart_contents.map(item => {
-        return {id: item.id}
-        })
+        let listItemsArray = Array.from(document.querySelectorAll("li"))
+        const items = listItemsArray.map(li => {return {id: parseInt(li.dataset.id)}})
         console.log(items)
+      
         fetch("http://localhost:3000/orders", {
             method: "POST",
             headers: { 
@@ -71,22 +77,23 @@ static createOrder(e){
 }
 
 renderOrder(){
+    const removeBtns = document.querySelectorAll(".remove-button")
+    removeBtns.forEach(button => button.remove())
+    let cartContents = document.getElementById('cart-contents').innerHTML
+    let cartTotal = document.getElementById('cart-total').innerHTML
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
         `<b>Your Order is Complete!<br><br>
         Order #${this.id}<br>
         Name: ${this.name}<br>
         Total: $${this.total}<br><br>
-        Items:<br></b>`
-    let listItems = document.querySelectorAll("li")
-    for (var i = 0; i < listItems.length; i++ )
-        { let t = listItems[i].title
-        orderContents.innerHTML += `${t}<br>` 
-        }
-    orderContents.innerHTML += `<br>${renderTaxMath()}`
-    const cancelOrderButton = document.getElementById("cancel-order-button");
-    cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
-    clearCartAndContainers()
+        Items:<br></b>
+        ${cartContents}<br>
+        ${cartTotal}
+        `
+        const cancelOrderButton = document.getElementById("cancel-order-button");
+        cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
+        clearCartAndContainers()
 }
 
 cancelOrder(e){
