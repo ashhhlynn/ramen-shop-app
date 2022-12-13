@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function startProgram(){ 
     Menu.fetchMenus()
-    addToDom()
+    addCartToDom()
     const startButton = document.getElementById("start-button");
     startButton.hidden = true 
 }
 
-function addToDom(){
+function addCartToDom(){
     let cartContainer = document.getElementById("cart")
         let title = document.createElement("h2")
         title.innerHTML = "Your Cart"
@@ -28,6 +28,7 @@ function addToDom(){
     cartContainer.appendChild(checkoutOrderButton)
     cartContainer.appendChild(cartContents)
     cartContainer.appendChild(cartTotal)
+    cartContainer.hidden = false
 }
 
 function checkLiLength(){

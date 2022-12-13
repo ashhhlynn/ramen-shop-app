@@ -8,31 +8,29 @@ constructor(id, name, total, items){
 }
 
 static makeNewOrderForm(){
-        let cartCont = document.getElementById("cart")
-            let form = document.createElement("form")
-                let input = document.createElement("input")
+    let cartCont = document.getElementById("cart")
+        let form = document.createElement("form")
+            let input = document.createElement("input")
                 input.id = 'name'
                 input.type = "text"
                 input.placeholder = "Enter your name:"
                 input.required = true 
-                let submit = document.createElement("button")
+            let submit = document.createElement("button")
                 submit.type = "submit"
                 submit.id = "submit"
                 submit.innerText = "place order"
-            form.appendChild(input)
-            form.appendChild(submit)
-        cartCont.appendChild(form)
-        document.getElementById("checkout-order-button").disabled = true;
-        form.addEventListener("submit", e => Order.createOrder(e))
-    }
-
+        form.appendChild(input)
+        form.appendChild(submit)
+    cartCont.appendChild(form)
+    document.getElementById("checkout-order-button").disabled = true;
+    form.addEventListener("submit", e => Order.createOrder(e))
+}
 
 static createOrder(e){
     e.preventDefault();
     let listItemsArray = Array.from(document.querySelectorAll("li"))
     const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
     console.log(items)
-
         fetch("http://localhost:3000/orders", {
             method: "POST",
             headers: { 
@@ -56,12 +54,22 @@ static createOrder(e){
         .catch(function(error) {
             alert("There were errors processing your order");
             console.log(error.message);
-        })
+    })
+}
+
+static renderOrderView(){
+    let cartContainer = document.getElementById('cart')
+    let menuItemsList = document.getElementById('menu-items-list')
+    let menuList = document.getElementById('menu-list')
+    cartContainer.hidden = true 
+    removeAllChildNodes(menuItemsList)
+    removeAllChildNodes(menuList)
+    const removeBtns = document.querySelectorAll(".remove-button")
+    removeBtns.forEach(button => button.remove())
 }
 
 renderOrder(){
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.remove())
+    Order.renderOrderView()
     let cartContents = document.getElementById('cart-contents')
     let orderContainer = document.getElementById("order")
         let orderContents = document.createElement("div")
@@ -75,23 +83,17 @@ renderOrder(){
         ${cartContents.innerHTML}<br>
         ${renderTaxMath()}
         `
-    orderContainer.appendChild(orderContents)
-    let cancelOrderButton = document.createElement("button")
+        let cancelOrderButton = document.createElement("button")
             cancelOrderButton.id = "cancel-order-button"
             cancelOrderButton.innerHTML = "Cancel Order"
             cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
-            orderContainer.appendChild(cancelOrderButton)
-        let cartContainer = document.getElementById('cart')
-        let menuItemsList = document.getElementById('menu-items-list')
-        let menuList = document.getElementById('menu-list')
-        cartContainer.hidden = true 
-        removeAllChildNodes(menuItemsList)
-        removeAllChildNodes(menuList)
-    let homeButton = document.createElement("button")
-        homeButton.id = "home-button"
-        homeButton.innerHTML = "Back to Home"
-        homeButton.addEventListener("click", e => Order.renderHomeView(e))
+        let homeButton = document.createElement("button")
+            homeButton.id = "home-button"
+            homeButton.innerHTML = "Back to Home"
+            homeButton.addEventListener("click", e => Order.renderHomeView(e))
+    orderContainer.appendChild(cancelOrderButton)
     orderContainer.appendChild(homeButton)
+    orderContainer.appendChild(orderContents)
 }
 
 cancelOrder(e){
@@ -104,14 +106,13 @@ cancelOrder(e){
         },
     })
     alert("Your order is canceled")
-    document.getElementById("order").hidden = true
     clearCartAndContainers()
 }
 
 static renderHomeView(){
+    clearCartAndContainers()
     const startButton = document.getElementById("start-button");
     startButton.hidden = false 
-    clearCartAndContainers()
 }
 
 }

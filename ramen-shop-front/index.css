@@ -157,7 +157,7 @@ input[type=text]{
     color: #313131;
 }
 
-.menu-button, #checkout-order-button, #cancel-order-button, button[type=submit]{
+.menu-button, #checkout-order-button, #cancel-order-button, button[type=submit], #home-button{
     background-color: #F0f0f0;
     display: inline-block;
     outline: 0;

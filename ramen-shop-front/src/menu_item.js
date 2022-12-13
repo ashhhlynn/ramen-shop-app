@@ -17,24 +17,24 @@ static renderMenuItems(e){
     menuItemsList.innerHTML = ""
     menu.menu_items.forEach(menu_item => { 
         let menuItem = document.createElement("div");
-        menuItem.className = "card"
-        menuItem.innerHTML+= `    
-        <img src="${menu_item.image_url}"><br>
-        ${menu_item.name} | $${menu_item.price}
-        <button class="add-button" id="${menu_item.id}">+</button><br>
-        <i>${menu_item.description}</i>
-        `
+            menuItem.className = "card"
+            menuItem.innerHTML+= `    
+                <img src="${menu_item.image_url}"><br>
+                ${menu_item.name} | $${menu_item.price}
+                <button class="add-button" id="${menu_item.id}">+</button><br>
+                <i>${menu_item.description}</i>
+            `
         menuItem.children[2].addEventListener("click", e => menu_item.addToCart(e))
-        menuItemsList.appendChild(menuItem)
+    menuItemsList.appendChild(menuItem)
     })
 }
 
 addToCart(e){
     let cartContents = document.getElementById("cart-contents")
         let cartItem = document.createElement("li")
-        cartItem.id = `item-${e.target.id}`
-        cartItem.innerHTML += `${e.target.previousSibling.textContent}
-        <button class="remove-button" id=${e.target.id}>-</button>`
+            cartItem.id = `item-${e.target.id}`
+            cartItem.innerHTML += `${e.target.previousSibling.textContent}
+            <button class="remove-button" id=${e.target.id}>-</button>`
     cartContents.appendChild(cartItem)    
     cart_total += this.price 
     alert("Added to cart")
