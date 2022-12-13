@@ -1,19 +1,40 @@
 h3{
     text-align: center;
-    font-weight: 400;
-    font-size: 32px;
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    text-transform: uppercase;
+font-weight: normal;
+    font-size: 28px;
+    font-family:   'Signika', sans-serif;
     margin-top: 8px;
+    line-height: 48px;
+    margin: 0;
     padding: .5em 0 .5em;
+    color: #5d5d5d;
+
 }
+
+
+
+.cart-contents{
+    text-align: left;
+    margin-left: 1em;
+    margin-bottom: .5em
+}
+
+.cart-total{
+    text-align: left;
+    margin-left: 2.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #313131;
+}
+
+
 
 
 body{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
     font-size: 16px;
-    color: 	#5d5d5d;
-    background-image: url("https://b.zmtcdn.com/data/pictures/chains/0/16581860/fd4b88d6ee61e187ac4f3760cda630f0_featured_v2.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*")
+    color: #313131;
+    background-image: url("https://www.tastingtable.com/img/gallery/what-makes-japanese-ramen-different-from-chinese-ramen/l-intro-1655408349.jpg")
     ;
     background-repeat: no-repeat;
     background-size: cover; 
@@ -27,24 +48,27 @@ body{
     box-sizing: border-box;
     size: cover;
     border: black;
-    background: #F0f0f0;
-    opacity: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background: white;
+    opacity: 95%;
     line-height: 19.2px;
-    color: 	#5d5d5d;
+    color: #F0f0f0;
+
 }
 
 .menu-items-list{
     display: inline-grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 20px;
     position: relative;
-    top: -520px;
-    left: 200px;
+    top: -400px;
+    left: 215px;
+    color: #313131;
+   
+    
 }
 
 .cart{
+    color: 	#5d5d5d;
     font-family: "UniversLTStd-BoldCn", sans-serif;     
     text-align: center;
     margin-top: 10px;    
@@ -69,68 +93,27 @@ body{
     width: 700px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 90%;
+    opacity: 96%;
 }
-
-.menu-button{
-    font-weight: 400px;
-    font-size: 20px;
-    background: #F8F8F8;
-    color:    #5d5d5d;
-    text-align: right;
-    line-height: 19.2px;
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    margin-bottom: 2em;
-    padding: .5em 1em .5em;
-    border: gray;
-    width: 110px;
-    height: 60px;
- }
 
  .start {
     margin-right: auto;
     margin-left: auto;
     text-align: center;
-    opacity: 70%;
+    opacity: 80%;
  }
 
- .start-button{
-    margin: 8px;
-    font-weight: 400px;
-    font-size: 35px;
-    background: #F8F8F8;
-    color:    #5d5d5d;
-    text-align: left;
-    line-height: 19.2px;
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    margin-bottom: 2em;
-    padding: 1em 1em 1em 1em;
-    border: gray;
-}
-
-.key-button{
-    margin: 8px;
-    font-weight: 400px;
-    font-size: 20px;
-    background: #F8F8F8;
-    color:    #5d5d5d;
-    text-align: left;
-    line-height: 19.2px;
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    margin-bottom: 2em;
-    padding: 1em 1em 1em 1em;
-    border: gray;
-}
 
 .card{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
-    width: 220px;
+    width: 240px;
     display: table;
-    height: 220px;
+    height: 240px;
     box-sizing: border-box;
     border: #313131;
-    background: #F0f0f0;
-    color: gray;
+    color: #313131;
+    line-height: 23px;
+
     }    
 
 img{
@@ -139,46 +122,67 @@ img{
 }
 
 .add-button{
-    border-color: #313131;
+    border-color: white;
     color: #313131;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    width: 40px;
+    height: 40px;
     font-weight: 500;
     padding: 0.65em 0.65em 0.65em;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
+    float: right;
 }
 
 .remove-button{
-    border-color: #313131;
+    border-color: white;
     color: #313131;
-    padding-top: 2px;
-    padding-bottom: 2px;
     font-weight: 500;
-    padding: 0.2em 0.2em 0.2em;
+    width: 16px;
+    height: 18x;
+    padding: 0.1em 0.1em 0.1em;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
+    text-align: center;
 }
 
 input[type=text]{
-    border-color: #313131;
-    color: navy;
-    padding-bottom: 2px;
+    color: black;
     font-weight: 500;
-    padding-top: 2px;
+    margin-bottom: 10px;
+    height: 30px;
+    cursor: text;
+    box-shadow: inset 0 1px 4px 0 rgb(119 122 175 / 30%);
+    overflow: hidden;
+    transition: all 100ms ease-in-out;
 }
 
-button[type=submit]{
-    margin: 8px;
-    font-weight: 400px;
-    font-size: 20px;
-    background: #F8F8F8;
-    color:    #5d5d5d;
-    text-align: left;
-    line-height: 19.2px;
-    font-family: "UniversLTStd-BoldCn", sans-serif;  
-    margin-bottom: 2em;
-    padding: 1em 1em 1em 1em;
-    border: gray;
+.start-button{
+    background-color: #F0f0f0;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 26px rgba(0,0,0,0.30), 0 12px 9px rgba(0,0,0,0.22);
+    width: 270px;
+    height: 80px;
+    padding: 0 32px;
+    font-size: 28px;
+    border-radius: 6px;
+    color: #313131;
 }
 
-
-
+.menu-button, .key-button, button[type=submit]{
+    background-color: #F0f0f0;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    height: 48px;
+    padding: 0 32px;
+    font-size: 18px;
+    border-radius: 6px;
+    color: #313131;
+    width: 150px;
+}

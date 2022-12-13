@@ -1,6 +1,8 @@
 cart_total = 0;
 
 document.addEventListener("DOMContentLoaded", function(){
+    const checkoutOrderButton = document.getElementById("checkout-order-button");
+    checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
     const startButton = document.getElementById("start-button");
     startButton.addEventListener("click", startProgram)
 })
@@ -8,10 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function startProgram(){ 
     Menu.fetchMenus()
     hideOrShow(false)
-    const orderContents = document.getElementById("order-contents")
-    orderContents.innerHTML = ``
-    const checkoutOrderButton = document.getElementById("checkout-order-button");
-    checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
+    removeAllChildNodes(document.getElementById("order-contents"))
 }
 
 function hideOrShow(show){
@@ -44,33 +43,16 @@ function renderTaxMath(){
 
 function clearCartAndContainers(){
     cart_total = 0;
-    removeAllChildNodes(document.querySelector('#menu-list'));
-    removeAllChildNodes(document.querySelector('#menu-items-list'))
-    removeAllChildNodes(document.querySelector('#order-form'))
-    document.getElementById("checkout-order-button").disabled = false;
-    document.getElementById("cart-contents").innerHTML = ``
-    document.getElementById("cart-total").innerHTML = `` 
+    document.getElementById("checkout-order-button").disabled = false
+    toClear = [(document.querySelector('#menu-list')), (document.querySelector('#menu-items-list')), (document.querySelector('#cart-total')), (document.querySelector('#cart-contents')), (document.querySelector('#order-form'))
+]
+    for (x of toClear){
+        removeAllChildNodes(x)
+    }
 }
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
-}
-
-
-function checkCartLength(){
-    if (cart_contents.length == 0){
-        return true
-    }
-}
-
-function listenButton(){
-    const addBtns = document.querySelectorAll(".add-button")
-    addBtns.forEach(button => button.addEventListener('click', e => MenuItem.addToCartDom(e)))
-}
-
-function listenButtonTwo(){
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCartDom(e)))
 }

@@ -1,4 +1,3 @@
-
 class MenuItem{
 
 static all = [];
@@ -18,8 +17,7 @@ static addToCartDom(e){
         let cartItem = document.createElement("li")
         cartItem.id = `item-${e.target.id}`
         cartItem.dataset.id = `${e.target.id}`
-        cartItem.title = `${e.target.previousSibling.textContent}`
-        cartItem.innerHTML += `${cartItem.title}
+        cartItem.innerHTML += `${e.target.previousSibling.textContent}
         <button class="remove-button" id=${e.target.id}>-</button>`
     cartContents.appendChild(cartItem)    
     menu_item.addToCartTotal()
@@ -54,30 +52,6 @@ static removeFromCartDom(e){
 removeFromCartTotal(){
     cart_total -= this.price 
     alert("Removed from cart")
-    MenuItem.renderCart()
-}
-
-
-
-
-
-
-
-
-
-removeFromCartConstant(){
-    cart_total -= this.price 
-    cart_contents.splice(cart_contents.indexOf(this), 1)
-    console.log(cart_contents)
-    alert("Removed from cart")
-    MenuItem.renderCart()
-}
-
-addToCartConstant(){
-    cart_contents.push(this)
-    console.log(cart_contents)
-    cart_total += this.price 
-    alert("Added to cart")
     MenuItem.renderCart()
 }
 

@@ -7,17 +7,10 @@ constructor(id, name, total, items){
     this.items = items;
 }
 
-static checkOrderEligible(){
- if (scheckLiLength()){
-    alert("Your cart is empty!")
-    return false }
-}
-
 static makeNewOrderForm(){
-    if (checkLiLength()){
-        alert("Your cart is empty!")
-    }
-    else{
+    if (checkLiLength() == true){
+        alert("Your cart is empty!")}
+    else {
         document.getElementById("order-form").hidden = false
         document.getElementById("checkout-order-button").disabled = true;
         const orderForm = document.getElementById("order-form")
@@ -35,15 +28,11 @@ static makeNewOrderForm(){
             form.appendChild(submit)
         orderForm.appendChild(form)
         form.addEventListener("submit", e => Order.createOrder(e))
-    }
-}
+    }}
+
 
 static createOrder(e){
     e.preventDefault();
-    if (checkLiLength()){
-        alert("Your cart is empty!")
-    }
-    else{
         hideOrShow(true) 
         let listItemsArray = Array.from(document.querySelectorAll("li"))
         const items = listItemsArray.map(li => {return {id: parseInt(li.dataset.id)}})
@@ -73,14 +62,12 @@ static createOrder(e){
             alert("There were errors processing your order");
             console.log(error.message);
         })
-    }
 }
 
 renderOrder(){
     const removeBtns = document.querySelectorAll(".remove-button")
     removeBtns.forEach(button => button.remove())
     let cartContents = document.getElementById('cart-contents').innerHTML
-    let cartTotal = document.getElementById('cart-total').innerHTML
     const orderContents = document.getElementById("order-contents")
     orderContents.innerHTML = 
         `<b>Your Order is Complete!<br><br>
@@ -89,7 +76,7 @@ renderOrder(){
         Total: $${this.total}<br><br>
         Items:<br></b>
         ${cartContents}<br>
-        ${cartTotal}
+        ${renderTaxMath()}
         `
         const cancelOrderButton = document.getElementById("cancel-order-button");
         cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
