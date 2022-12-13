@@ -8,9 +8,7 @@ constructor(id, name, total, items){
 }
 
 static makeNewOrderForm(){
-        document.getElementById("order-form").hidden = false
-        document.getElementById("checkout-order-button").disabled = true;
-        const orderForm = document.getElementById("order-form")
+        let cartCont = document.getElementById("cart")
             let form = document.createElement("form")
                 let input = document.createElement("input")
                 input.id = 'name'
@@ -23,14 +21,14 @@ static makeNewOrderForm(){
                 submit.innerText = "place order"
             form.appendChild(input)
             form.appendChild(submit)
-        orderForm.appendChild(form)
+        cartCont.appendChild(form)
+        document.getElementById("checkout-order-button").disabled = true;
         form.addEventListener("submit", e => Order.createOrder(e))
     }
 
 
 static createOrder(e){
     e.preventDefault();
-    hideOrShow(true) 
     let listItemsArray = Array.from(document.querySelectorAll("li"))
     const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
     console.log(items)
@@ -64,20 +62,36 @@ static createOrder(e){
 renderOrder(){
     const removeBtns = document.querySelectorAll(".remove-button")
     removeBtns.forEach(button => button.remove())
-    let cartContents = document.getElementById('cart-contents').innerHTML
-    const orderContents = document.getElementById("order-contents")
-    orderContents.innerHTML = 
-        `<b>Your Order is Complete!<br><br>
+    let cartContents = document.getElementById('cart-contents')
+    let orderContainer = document.getElementById("order")
+        let orderContents = document.createElement("div")
+            orderContents.id = "order-contents"
+            orderContents.innerHTML = 
+        `<h2><b>Your Order is Complete!</h2><br>
         Order #${this.id}<br>
         Name: ${this.name}<br>
         Total: $${this.total}<br><br>
         Items:<br></b>
-        ${cartContents}<br>
+        ${cartContents.innerHTML}<br>
         ${renderTaxMath()}
         `
-        const cancelOrderButton = document.getElementById("cancel-order-button");
-        cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
-        clearCartAndContainers()
+    orderContainer.appendChild(orderContents)
+    let cancelOrderButton = document.createElement("button")
+            cancelOrderButton.id = "cancel-order-button"
+            cancelOrderButton.innerHTML = "Cancel Order"
+            cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
+            orderContainer.appendChild(cancelOrderButton)
+        let cartContainer = document.getElementById('cart')
+        let menuItemsList = document.getElementById('menu-items-list')
+        let menuList = document.getElementById('menu-list')
+        cartContainer.hidden = true 
+        removeAllChildNodes(menuItemsList)
+        removeAllChildNodes(menuList)
+    let homeButton = document.createElement("button")
+        homeButton.id = "home-button"
+        homeButton.innerHTML = "Back to Home"
+        homeButton.addEventListener("click", e => Order.renderHomeView(e))
+    orderContainer.appendChild(homeButton)
 }
 
 cancelOrder(e){
@@ -91,6 +105,12 @@ cancelOrder(e){
     })
     alert("Your order is canceled")
     document.getElementById("order").hidden = true
+    clearCartAndContainers()
+}
+
+static renderHomeView(){
+    const startButton = document.getElementById("start-button");
+    startButton.hidden = false 
     clearCartAndContainers()
 }
 

@@ -7,18 +7,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function startProgram(){ 
     Menu.fetchMenus()
-    hideOrShow(false)
-    removeAllChildNodes(document.getElementById("order-contents"))
-    const checkoutOrderButton = document.getElementById("checkout-order-button");
-    checkoutOrderButton.addEventListener("click", e => orderEligible(e))
+    addToDom()
+    const startButton = document.getElementById("start-button");
+    startButton.hidden = true 
 }
 
-function hideOrShow(show){
-    document.getElementById("start-button").hidden = !show;
-    document.getElementById("container").hidden = show;
-    document.getElementById("cart").hidden = show
-    document.getElementById("order").hidden = !show
-    document.getElementById("order-form").hidden = !show;
+function addToDom(){
+    let cartContainer = document.getElementById("cart")
+        let title = document.createElement("h2")
+        title.innerHTML = "Your Cart"
+        let cartContents = document.createElement("div")
+            cartContents.id = "cart-contents"
+        let cartTotal = document.createElement("div")
+            cartTotal.id = "cart-total"
+        let checkoutOrderButton = document.createElement("button")
+            checkoutOrderButton.id = "checkout-order-button"
+            checkoutOrderButton.innerHTML = "Checkout"
+            checkoutOrderButton.addEventListener("click", e => orderEligible(e))
+    cartContainer.appendChild(title)
+    cartContainer.appendChild(checkoutOrderButton)
+    cartContainer.appendChild(cartContents)
+    cartContainer.appendChild(cartTotal)
 }
 
 function checkLiLength(){
@@ -50,13 +59,10 @@ function renderTaxMath(){
 }
 
 function clearCartAndContainers(){
-    cart_total = 0;
-    document.getElementById("checkout-order-button").disabled = false
-    toClear = [(document.querySelector('#menu-list')), (document.querySelector('#menu-items-list')), (document.querySelector('#cart-total')), (document.querySelector('#cart-contents')), (document.querySelector('#order-form'))
-]
-    for (x of toClear){
-        removeAllChildNodes(x)
-    }
+    cart_total = 0; 
+    const collection = Array.from(document.getElementById("container").children);
+    console.log(collection)  
+        collection.forEach(div => {removeAllChildNodes(div)})
 }
 
 function removeAllChildNodes(parent) {

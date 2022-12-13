@@ -19,17 +19,23 @@ static fetchMenus(){
                 menu.menu_items.push(new MenuItem(mI.id, mI.name, mI.price, mI.description, mI.image_url))
             })
             menu.renderMenus()
+          
         })
     })
 }
 
 renderMenus(){
-    const menusList = document.getElementById("menu-list")
-        let menuButtons = document.createElement("div");
-        menuButtons.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
+        let menuList = document.getElementById("menu-list")
+            let menuButtons = document.createElement("div");
+            menuButtons.id = "menu-buttons"
+            menuButtons.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
+        menuList.appendChild(menuButtons)
         menuButtons.firstChild.addEventListener("click", e => MenuItem.renderMenuItems(e))
-    menusList.appendChild(menuButtons)
+    
+
+   
 }
+
 
 
 

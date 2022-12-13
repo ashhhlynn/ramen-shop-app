@@ -13,7 +13,7 @@ constructor(id, name, price, description, image_url){
 
 static renderMenuItems(e){  
     let menu = Menu.all.find(menu=> menu.id == e.target.id)
-    const menuItemsList = document.getElementById("menu-items-list")
+    let menuItemsList = document.getElementById("menu-items-list")
     menuItemsList.innerHTML = ""
     menu.menu_items.forEach(menu_item => { 
         let menuItem = document.createElement("div");
@@ -30,7 +30,7 @@ static renderMenuItems(e){
 }
 
 addToCart(e){
-    const cartContents = document.getElementById("cart-contents")
+    let cartContents = document.getElementById("cart-contents")
         let cartItem = document.createElement("li")
         cartItem.id = `item-${e.target.id}`
         cartItem.innerHTML += `${e.target.previousSibling.textContent}
@@ -42,11 +42,11 @@ addToCart(e){
 }
 
 renderCart(){
-    const cartContents = document.getElementById("cart-contents")
+    let cartContents = document.getElementById("cart-contents")
+    let cartTotal = document.getElementById("cart-total")
     let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
         {cartContents.innerHTML += ``}
-    const cartTotal = document.getElementById("cart-total")
     if (checkLiLength())
         {cartTotal.innerHTML= `Your cart is empty`}
     else 

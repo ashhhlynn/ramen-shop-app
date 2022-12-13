@@ -1,34 +1,26 @@
-h3{
+h2{
     text-align: center;
-font-weight: normal;
     font-size: 28px;
     font-family:   'Signika', sans-serif;
     margin-top: 8px;
-    line-height: 48px;
-    margin: 0;
+    line-height: 30px;
     padding: .5em 0 .5em;
     color: #5d5d5d;
-
 }
 
-
-
-.cart-contents{
+#cart-contents{
     text-align: left;
     margin-left: 1em;
     margin-bottom: .5em
 }
 
-.cart-total{
+#cart-total{
     text-align: left;
     margin-left: 2.5em;
     margin-top: 1em;
     margin-bottom: 1em;
     color: #313131;
 }
-
-
-
 
 body{
     font-family: "UniversLTStd-BoldCn", sans-serif;  
@@ -39,20 +31,18 @@ body{
     background-repeat: no-repeat;
     background-size: cover; 
     background-position: center center;
-    background-attachment: fixed;
- 
+    background-attachment: fixed; 
 }
 
 .container{
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     box-sizing: border-box;
-    size: cover;
+    height: 800px;
     border: black;
     background: white;
     opacity: 95%;
     line-height: 19.2px;
-    color: #F0f0f0;
-
+    color: black;
 }
 
 .menu-items-list{
@@ -63,8 +53,6 @@ body{
     top: -400px;
     left: 215px;
     color: #313131;
-   
-    
 }
 
 .cart{
@@ -72,13 +60,12 @@ body{
     font-family: "UniversLTStd-BoldCn", sans-serif;     
     text-align: center;
     margin-top: 10px;    
-    color: 	#5d5d5d;
     line-height: 19.2px;
     width: 250px;
     position: fixed;
     right: 0px;
     top: 0px;
-    background: white ;
+    background: white;
     overflow-y: scroll;
 }
 
@@ -86,14 +73,15 @@ body{
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     text-align: center;
     box-sizing: border-box;
-    border: black;
     background: #F0f0f0;
     line-height: 19.2px;
-    color: black;
+    color: #313131;
     width: 700px;
     margin-left: auto;
     margin-right: auto;
     opacity: 96%;
+    margin-top: 10px; 
+    margin-bottom: 20px ;
 }
 
  .start {
@@ -101,7 +89,7 @@ body{
     margin-left: auto;
     text-align: center;
     opacity: 80%;
- }
+}
 
 
 .card{
@@ -113,7 +101,6 @@ body{
     border: #313131;
     color: #313131;
     line-height: 23px;
-
     }    
 
 img{
@@ -144,8 +131,8 @@ img{
 }
 
 input[type=text]{
-    color: black;
     font-weight: 500;
+    margin-top: 10px;
     margin-bottom: 10px;
     height: 30px;
     cursor: text;
@@ -170,7 +157,7 @@ input[type=text]{
     color: #313131;
 }
 
-.menu-button, .key-button, button[type=submit]{
+.menu-button, #checkout-order-button, #cancel-order-button, button[type=submit]{
     background-color: #F0f0f0;
     display: inline-block;
     outline: 0;
