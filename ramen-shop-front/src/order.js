@@ -8,9 +8,6 @@ constructor(id, name, total, items){
 }
 
 static makeNewOrderForm(){
-    if (checkLiLength() == true){
-        alert("Your cart is empty!")}
-    else {
         document.getElementById("order-form").hidden = false
         document.getElementById("checkout-order-button").disabled = true;
         const orderForm = document.getElementById("order-form")
@@ -28,16 +25,16 @@ static makeNewOrderForm(){
             form.appendChild(submit)
         orderForm.appendChild(form)
         form.addEventListener("submit", e => Order.createOrder(e))
-    }}
+    }
 
 
 static createOrder(e){
     e.preventDefault();
-        hideOrShow(true) 
-        let listItemsArray = Array.from(document.querySelectorAll("li"))
-        const items = listItemsArray.map(li => {return {id: parseInt(li.dataset.id)}})
-        console.log(items)
-      
+    hideOrShow(true) 
+    let listItemsArray = Array.from(document.querySelectorAll("li"))
+    const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
+    console.log(items)
+
         fetch("http://localhost:3000/orders", {
             method: "POST",
             headers: { 

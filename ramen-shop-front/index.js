@@ -1,8 +1,6 @@
 cart_total = 0;
 
 document.addEventListener("DOMContentLoaded", function(){
-    const checkoutOrderButton = document.getElementById("checkout-order-button");
-    checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
     const startButton = document.getElementById("start-button");
     startButton.addEventListener("click", startProgram)
 })
@@ -11,6 +9,8 @@ function startProgram(){
     Menu.fetchMenus()
     hideOrShow(false)
     removeAllChildNodes(document.getElementById("order-contents"))
+    const checkoutOrderButton = document.getElementById("checkout-order-button");
+    checkoutOrderButton.addEventListener("click", e => orderEligible(e))
 }
 
 function hideOrShow(show){
@@ -25,6 +25,14 @@ function checkLiLength(){
     let listItems = document.querySelectorAll("li")
     if (listItems.length == 0){
         return true
+    }
+}
+
+function orderEligible(){
+    if (checkLiLength() == true){
+        alert("Your cart is empty!")}
+    else {
+        Order.makeNewOrderForm()
     }
 }
 

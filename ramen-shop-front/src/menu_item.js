@@ -11,25 +11,37 @@ constructor(id, name, price, description, image_url){
     MenuItem.all.push(this);
 }
 
-static addToCartDom(e){
-    let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id)
+static renderMenuItems(e){  
+    let menu = Menu.all.find(menu=> menu.id == e.target.id)
+    const menuItemsList = document.getElementById("menu-items-list")
+    menuItemsList.innerHTML = ""
+    menu.menu_items.forEach(menu_item => { 
+        let menuItem = document.createElement("div");
+        menuItem.className = "card"
+        menuItem.innerHTML+= `    
+        <img src="${menu_item.image_url}"><br>
+        ${menu_item.name} | $${menu_item.price}
+        <button class="add-button" id="${menu_item.id}">+</button><br>
+        <i>${menu_item.description}</i>
+        `
+        menuItem.children[2].addEventListener("click", e => menu_item.addToCart(e))
+        menuItemsList.appendChild(menuItem)
+    })
+}
+
+addToCart(e){
     const cartContents = document.getElementById("cart-contents")
         let cartItem = document.createElement("li")
         cartItem.id = `item-${e.target.id}`
-        cartItem.dataset.id = `${e.target.id}`
         cartItem.innerHTML += `${e.target.previousSibling.textContent}
         <button class="remove-button" id=${e.target.id}>-</button>`
     cartContents.appendChild(cartItem)    
-    menu_item.addToCartTotal()
-}
-
-addToCartTotal(){
     cart_total += this.price 
     alert("Added to cart")
-    MenuItem.renderCart()
+    this.renderCart()
 }
 
-static renderCart(){
+renderCart(){
     const cartContents = document.getElementById("cart-contents")
     let listItems = document.querySelectorAll("li")
     for (var i = 0; i < listItems.length; i++ )
@@ -40,21 +52,15 @@ static renderCart(){
     else 
         {cartTotal.innerHTML = `${renderTaxMath()}`}
     const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCartDom(e)))
+    removeBtns.forEach(button => button.addEventListener("click", e => this.removeFromCart(e)))
 }
 
-static removeFromCartDom(e){
+removeFromCart(e){
     document.getElementById(`item-${e.target.id}`).remove()
-    let menu_item = MenuItem.all.find(menu_item => menu_item.id == e.target.id);
-    menu_item.removeFromCartTotal()
-}
-
-removeFromCartTotal(){
     cart_total -= this.price 
     alert("Removed from cart")
-    MenuItem.renderCart()
+    this.renderCart()
 }
-
 
 
 }
