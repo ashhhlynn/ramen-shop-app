@@ -2,19 +2,18 @@ cart_total = 0;
 document.addEventListener("DOMContentLoaded", function(){
     const startButton = document.getElementById("start-button");
     startButton.addEventListener("click", startProgram)
-
 })
 
 function startProgram(){ 
     Menu.fetchMenus()
     addCartToDom()
-    const startButton = document.getElementById("start-button");
-    startButton.hidden = true 
+    document.getElementById("container").hidden = false
+    document.getElementById("start").hidden = true
 
 }
 
 function addCartToDom(){
-    const cartContainer = document.getElementById("cart")
+    cartContainer = document.getElementById("cart")
         let title = document.createElement("h2")
         title.innerHTML = "Your Cart"
         let cartContents = document.createElement("div")
@@ -26,9 +25,9 @@ function addCartToDom(){
             checkoutOrderButton.innerHTML = "Checkout"
             checkoutOrderButton.addEventListener("click", e => orderEligible(e))
     cartContainer.appendChild(title)
-    cartContainer.appendChild(checkoutOrderButton)
     cartContainer.appendChild(cartContents)
     cartContainer.appendChild(cartTotal)
+    cartContainer.appendChild(checkoutOrderButton)
     cartContainer.hidden = false
 }
 
@@ -39,12 +38,13 @@ function checkLiLength(){
     }
 }
 
-function orderEligible(){
-    if (checkLiLength() == true){
+function orderEligible(e){
+    e.preventDefault
+    if (checkLiLength() == true)
+    {
         alert("Your cart is empty!")}
-    else {
-        Order.makeNewOrderForm()
-    }
+    else 
+    {Order.makeNewOrderForm(e)}
 }
 
 function taxMath(){

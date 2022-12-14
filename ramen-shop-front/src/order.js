@@ -18,7 +18,7 @@ static makeNewOrderForm(){
             let submit = document.createElement("button")
                 submit.type = "submit"
                 submit.id = "submit"
-                submit.innerText = "place order"
+                submit.innerText = "Place Order"
         form.appendChild(input)
         form.appendChild(submit)
     cartCont.appendChild(form)
@@ -27,8 +27,9 @@ static makeNewOrderForm(){
 }
 
 static createOrder(e){
-    e.preventDefault();
+    e.preventDefault()
     let listItemsArray = Array.from(document.querySelectorAll("li"))
+    if (listItemsArray.length > 0){
     const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
     console.log(items)
         fetch("http://localhost:3000/orders", {
@@ -56,6 +57,7 @@ static createOrder(e){
             console.log(error.message);
     })
 }
+}
 
 static renderOrderView(){
     let cartContainer = document.getElementById('cart')
@@ -81,19 +83,15 @@ renderOrder(){
         Total: $${this.total}<br><br>
         Items:<br></b>
         ${cartContents.innerHTML}<br>
-        ${renderTaxMath()}
+        ${renderTaxMath()}<br>
+        <button class="cancel-order-button" id="cancel-order-button">Cancel Order</button>
+        <button class="home-button" id="home-button">Home</button> 
         `
-        let cancelOrderButton = document.createElement("button")
-            cancelOrderButton.id = "cancel-order-button"
-            cancelOrderButton.innerHTML = "Cancel Order"
-            cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
-        let homeButton = document.createElement("button")
-            homeButton.id = "home-button"
-            homeButton.innerHTML = "Back to Home"
-            homeButton.addEventListener("click", e => Order.renderHomeView(e))
-    orderContainer.appendChild(cancelOrderButton)
-    orderContainer.appendChild(homeButton)
     orderContainer.appendChild(orderContents)
+        let cancelOrderButton = document.getElementById("cancel-order-button")
+        let homeButton = document.getElementById("home-button")
+        cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
+        homeButton.addEventListener("click", e => Order.renderHomeView(e))
 }
 
 cancelOrder(e){
@@ -106,7 +104,7 @@ cancelOrder(e){
         },
     })
     alert("Your order is canceled")
-    clearCartAndContainers()
+    Order.renderHomeView()
 }
 
 static renderHomeView(){
