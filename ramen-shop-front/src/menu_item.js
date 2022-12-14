@@ -34,14 +34,14 @@ addToCart(e){
         let cartItem = document.createElement("li")
             cartItem.id = `item-${e.target.id}`
             cartItem.innerHTML += `${e.target.previousSibling.textContent}
-            <button class="remove-button" id=${e.target.id}>-</button>`
+            <button class="remove-button" id='${e.target.id}'>-</button>`
     cartContents.appendChild(cartItem)    
     cart_total += this.price 
     alert("Added to cart")
-    this.renderCart()
+    MenuItem.renderCart()
 }
 
-renderCart(){
+static renderCart(){
     let cartContents = document.getElementById("cart-contents")
     let cartTotal = document.getElementById("cart-total")
     let listItems = document.querySelectorAll("li")
@@ -51,15 +51,19 @@ renderCart(){
         {cartTotal.innerHTML= `Your cart is empty`}
     else 
         {cartTotal.innerHTML = `${renderTaxMath()}`}
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.addEventListener("click", e => this.removeFromCart(e)))
+    const removeBtns = Array.from(document.querySelectorAll(".remove-button"))
+    removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.removeFromCart(e)))
+    console.log(removeBtns)
 }
 
-removeFromCart(e){
+static removeFromCart(e){
+    e.preventDefault()
+    let menu_item = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
     document.getElementById(`item-${e.target.id}`).remove()
-    cart_total -= this.price 
+    cart_total -= menu_item.price 
+    console.log(cart_total)
     alert("Removed from cart")
-    this.renderCart()
+    MenuItem.renderCart()
 }
 
 

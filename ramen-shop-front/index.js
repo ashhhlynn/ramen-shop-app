@@ -1,8 +1,8 @@
 cart_total = 0;
-
 document.addEventListener("DOMContentLoaded", function(){
     const startButton = document.getElementById("start-button");
     startButton.addEventListener("click", startProgram)
+
 })
 
 function startProgram(){ 
@@ -10,10 +10,11 @@ function startProgram(){
     addCartToDom()
     const startButton = document.getElementById("start-button");
     startButton.hidden = true 
+
 }
 
 function addCartToDom(){
-    let cartContainer = document.getElementById("cart")
+    const cartContainer = document.getElementById("cart")
         let title = document.createElement("h2")
         title.innerHTML = "Your Cart"
         let cartContents = document.createElement("div")
