@@ -9,7 +9,6 @@ function startProgram(){
     addCartToDom()
     document.getElementById("container").hidden = false
     document.getElementById("start").hidden = true
-
 }
 
 function addCartToDom(){
@@ -31,7 +30,7 @@ function addCartToDom(){
     cartContainer.hidden = false
 }
 
-function checkLiLength(){
+function checkCartLength(){
     let listItems = document.querySelectorAll("li")
     if (listItems.length == 0){
         return true
@@ -40,7 +39,7 @@ function checkLiLength(){
 
 function orderEligible(e){
     e.preventDefault
-    if (checkLiLength() == true)
+    if (checkCartLength())
     {
         alert("Your cart is empty!")}
     else 
@@ -60,15 +59,23 @@ function renderTaxMath(){
    `   
 }
 
+function renderHomeView(){
+    document.getElementById("start").hidden = !show
+    document.getElementById("container").hidden = show;
+    clearCartAndContainers() 
+}
+
 function clearCartAndContainers(){
     cart_total = 0; 
     const collection = Array.from(document.getElementById("container").children);
     console.log(collection)  
-        collection.forEach(div => {removeAllChildNodes(div)})
+        collection.forEach(div => {removeAllChildNodes(div)})        
 }
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+
+
 }

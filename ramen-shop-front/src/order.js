@@ -91,7 +91,7 @@ renderOrder(){
         let cancelOrderButton = document.getElementById("cancel-order-button")
         let homeButton = document.getElementById("home-button")
         cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
-        homeButton.addEventListener("click", e => Order.renderHomeView(e))
+        homeButton.addEventListener("click", e => renderHomeView(e))
 }
 
 cancelOrder(e){
@@ -104,13 +104,9 @@ cancelOrder(e){
         },
     })
     alert("Your order is canceled")
-    Order.renderHomeView()
+    renderHomeView()
 }
 
-static renderHomeView(){
-    clearCartAndContainers()
-    const startButton = document.getElementById("start-button");
-    startButton.hidden = false 
-}
+
 
 }

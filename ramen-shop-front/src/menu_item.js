@@ -31,10 +31,8 @@ class MenuItem{
     static listenButtons(e){
         e.preventDefault()
         let menu_item = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
-    
         if (e.target.innerText == '+') {
             menu_item.addToCart(e.target)
-          
         }
         else if 
         (e.target.innerText === '-') {
@@ -52,15 +50,21 @@ class MenuItem{
         cart_total += this.price 
         alert("Added to cart")
         MenuItem.renderCart()
-
     }
 
+    removeFromCart(menuItem){
+        document.getElementById(`item-${menuItem.id}`).remove()
+        cart_total -= this.price 
+        console.log(cart_total)
+        alert("Removed from cart")
+        MenuItem.renderCart()
+    }
+   
     setEl(){
         let lE = document.getElementById(`item-${this.id}`)
         let lEC = lE.lastElementChild
         console.log(lEC)
         lEC.addEventListener("click", e => MenuItem.listenButtons(e))
-       
     }
     
     static renderCart(){
@@ -69,24 +73,14 @@ class MenuItem{
         let listItems = document.querySelectorAll("li")
         for (var i = 0; i < listItems.length; i++ )
             {cartContents.innerHTML += ``}
-        if (checkLiLength())
+        if (checkCartLength())
             {cartTotal.innerHTML= `Your cart is empty`}
         else 
             {cartTotal.innerHTML = `${renderTaxMath()}`}
-
         const removeBtns = Array.from(document.querySelectorAll(".remove-button"))
         removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.listenButtons(e)))
     }
     
-     removeFromCart(menuItem){
-        document.getElementById(`item-${menuItem.id}`).remove()
-        cart_total -= this.price 
-        console.log(cart_total)
-        alert("Removed from cart")
-        MenuItem.renderCart()
-        }
-    
-
 
 }
 
