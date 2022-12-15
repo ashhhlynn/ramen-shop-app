@@ -32,6 +32,7 @@ static createOrder(e){
     if (listItemsArray.length > 0){
     const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
     console.log(items)
+    console.log(listItemsArray)
         fetch("http://localhost:3000/orders", {
             method: "POST",
             headers: { 
@@ -51,6 +52,7 @@ static createOrder(e){
             let order = new Order(json.id, json.name, json.total, json.items)
             console.log(order)
             order.renderOrder()
+            order.getItemInformation()
         })
         .catch(function(error) {
             alert("There were errors processing your order");
@@ -58,6 +60,18 @@ static createOrder(e){
     })
 }
 }
+
+getItemInformation(){
+this.items.forEach(item => {
+let mi = MenuItem.all.filter(menuItem => menuItem.id == item.menu_item_id)
+mi.forEach(i => {return( `${i.name} | $${i.price}`)})
+})}
+
+ 
+
+
+
+
 
 static renderOrderView(){
     let cartContainer = document.getElementById('cart')

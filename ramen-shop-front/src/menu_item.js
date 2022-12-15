@@ -10,6 +10,9 @@ class MenuItem{
         MenuItem.all.push(this);
     }
     
+
+
+
     static renderMenuItems(e){  
         let menu = Menu.all.find(menu=> menu.id == e.target.id)
         let menuItemsList = document.getElementById("menu-items-list")
@@ -36,49 +39,40 @@ class MenuItem{
         }
         else if 
         (e.target.innerText === '-') {
-            menu_item.removeFromCart(e.target)
+            menu_item.removeFromCart()
         }
     }
     
     addToCart(menuItem){
         let cartContents = document.getElementById("cart-contents")
             let cartItem = document.createElement("li")
-                cartItem.id = `item-${menuItem.id}`
+                cartItem.id = `item-${this.id}`
                 cartItem.innerHTML += `${menuItem.previousSibling.textContent}
-                <button class="remove-button" id='${menuItem.id}'>-</button>`
-        cartContents.appendChild(cartItem)    
+                <button class="remove-button" id='${this.id}'>-</button>`
+                cartItem.lastElementChild.addEventListener("click", e => MenuItem.listenButtons(e))
+                console.log(cartItem.lastElementChild)
+        cartContents.appendChild(cartItem)   
         cart_total += this.price 
         alert("Added to cart")
-        MenuItem.renderCart()
+        MenuItem.renderCart()  
     }
 
-    removeFromCart(menuItem){
-        document.getElementById(`item-${menuItem.id}`).remove()
+    removeFromCart(){
+        document.getElementById(`item-${this.id}`).remove()
         cart_total -= this.price 
         console.log(cart_total)
         alert("Removed from cart")
         MenuItem.renderCart()
     }
    
-    setEl(){
-        let lE = document.getElementById(`item-${this.id}`)
-        let lEC = lE.lastElementChild
-        console.log(lEC)
-        lEC.addEventListener("click", e => MenuItem.listenButtons(e))
-    }
-    
     static renderCart(){
-        let cartContents = document.getElementById("cart-contents")
-        let cartTotal = document.getElementById("cart-total")
-        let listItems = document.querySelectorAll("li")
-        for (var i = 0; i < listItems.length; i++ )
-            {cartContents.innerHTML += ``}
+        let cartTotal = document.getElementById("cart-total")   
         if (checkCartLength())
-            {cartTotal.innerHTML= `Your cart is empty`}
+            {cartTotal.innerHTML= `Your cart is empty`
+        }
         else 
-            {cartTotal.innerHTML = `${renderTaxMath()}`}
-        const removeBtns = Array.from(document.querySelectorAll(".remove-button"))
-        removeBtns.forEach(button => button.addEventListener("click", e => MenuItem.listenButtons(e)))
+            {cartTotal.innerHTML = `${renderTaxMath()}`
+        }
     }
     
 
