@@ -48,6 +48,7 @@ class Order {
                 return resp.json();
             })
             .then(function(json){
+                console.log(json)
                 let order = new Order(json.id, json.name, json.total, json.items)
                 console.log(order)
                 order.renderOrder()
@@ -75,9 +76,9 @@ class Order {
                 Name: ${this.name}<br>
                 Total: $${this.total}<br><br>
                 Items:<br></b> `
-            this.items.forEach(item =>{
-                let mi = MenuItem.all.find(mi => mi.id == item.menu_item_id)
-                orderContents.innerHTML += `${mi.menuItemDisplay()} <br>`
+            this.items.forEach(item => {
+                let menuItem = MenuItem.all.find(menuItem => menuItem.id == item.menu_item_id)
+                orderContents.innerHTML += `${menuItem.menuItemDisplay()} <br>`
             })
             orderContents.innerHTML += `
                 <br>${renderTaxMath()}<br>

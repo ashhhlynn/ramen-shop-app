@@ -10,10 +10,6 @@ class MenuItem {
         this.image_url = image_url;
         MenuItem.all.push(this);
     }
-    
-    menuItemDisplay(){
-        return this.name + " | $" + this.price
-    }
 
     static renderMenuItems(e){  
         let menu = Menu.all.find(menu=> menu.id == e.target.id)
@@ -31,6 +27,10 @@ class MenuItem {
                 menuItemsList.appendChild(menuItem)
             menuItem.children[2].addEventListener("click", e => MenuItem.listenButtons(e))
         })
+    }
+
+    menuItemDisplay(){
+        return this.name + " | $" + this.price
     }
 
     static listenButtons(e){
@@ -52,7 +52,6 @@ class MenuItem {
                 cartItem.innerHTML += `${this.menuItemDisplay()}
                 <button class="remove-button" id='${this.id}'>-</button>`
                 cartItem.lastElementChild.addEventListener("click", e => MenuItem.listenButtons(e))
-                console.log(cartItem.lastElementChild)
         cartContents.appendChild(cartItem)   
         cart_total += this.price 
         alert("Added to cart")
@@ -62,7 +61,6 @@ class MenuItem {
     removeFromCart(){
         document.getElementById(`item-${this.id}`).remove()
         cart_total -= this.price 
-        console.log(cart_total)
         alert("Removed from cart")
         MenuItem.renderCart()
     }

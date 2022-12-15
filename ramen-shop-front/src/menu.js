@@ -12,6 +12,7 @@ class Menu {
         fetch("http://localhost:3000/menus")
         .then(resp => resp.json())
         .then(function(menus){
+            console.log(menus)
             menus.forEach(function(menuObj){
                 let menu = (new Menu(menuObj.id, menuObj.category))
                 Menu.all.push(menu)

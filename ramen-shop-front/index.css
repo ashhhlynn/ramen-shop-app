@@ -221,7 +221,6 @@ input[type=text]{
 .menu-button, #checkout-order-button, #cancel-order-button, button[type=submit], #home-button{
     background-color: #F0f0f0;
     font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-
     display: inline-block;
     outline: 0;
     border: 0;
@@ -234,5 +233,5 @@ input[type=text]{
     font-size: 22px;
     border-radius: 6px;
     color: #313131;
-    width: 180px;
+    width: 190px;
 }
