@@ -25,7 +25,7 @@ class Menu {
     }
     
     renderMenus(){
-        let menuList = document.getElementById("menu-list")
+        const menuList = document.getElementById("menu-list")
             let menuButtons = document.createElement("div");
                 menuButtons.id = "menu-buttons"
                 menuButtons.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`

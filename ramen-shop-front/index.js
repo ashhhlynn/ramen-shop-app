@@ -1,18 +1,20 @@
 cart_total = 0;
+const startButton = document.getElementById("start-button")
+
 document.addEventListener("DOMContentLoaded", function(){
-    const startButton = document.getElementById("start-button");
+    const startButton = document.getElementById("start-button")
     startButton.addEventListener("click", startProgram)
 })
 
 function startProgram(){ 
     Menu.fetchMenus()
     addCartToDom()
-    document.getElementById("container").hidden = false
     document.getElementById("start").hidden = true
+    document.getElementById("container").hidden = false
 }
 
 function addCartToDom(){
-    cartContainer = document.getElementById("cart")
+    const cartContainer = document.getElementById("cart")
         let title = document.createElement("h2")
         title.innerHTML = "Your Cart"
         let cartContents = document.createElement("div")
@@ -60,12 +62,17 @@ function renderTaxMath(){
    `   
 }
 
-function renderHomeView(){
+function showOrHide(){
     document.getElementById("start").hidden = false
     document.getElementById("container").hidden = true
-    let orderCont = document.getElementById("order")
+}
+
+function renderHomeView(){
+    showOrHide(true)
+    const orderCont = document.getElementById("order")
     removeAllChildNodes(orderCont)
     cart_total = 0; 
+    document.getElementById("container").remove()
 }
 
 function clearCartAndContainers(){

@@ -8,7 +8,7 @@ class Order {
     }
 
     static makeNewOrderForm(){
-        let cartCont = document.getElementById("cart")
+        const cartContainer = document.getElementById("cart")
             let form = document.createElement("form")
                 let input = document.createElement("input")
                 input.id = 'name'
@@ -21,7 +21,7 @@ class Order {
                 submit.innerText = "Place Order"
             form.appendChild(input)
             form.appendChild(submit)
-        cartCont.appendChild(form)
+        cartContainer.appendChild(form)
         document.getElementById("checkout-order-button").disabled = true;
         form.addEventListener("submit", e => Order.createOrder(e))
     }
@@ -65,9 +65,11 @@ class Order {
         document.getElementById("container").hidden = true
     }
 
+
+
     renderOrder(){
         Order.renderOrderView()
-        let orderContainer = document.getElementById("order")
+        const orderContainer = document.getElementById("order")
             let orderContents = document.createElement("div")
             orderContents.id = "order-contents"
             orderContents.innerHTML = 
@@ -86,8 +88,8 @@ class Order {
                 <button class="home-button" id="home-button">Home</button> 
                 `
         orderContainer.appendChild(orderContents)
-        let cancelOrderButton = document.getElementById("cancel-order-button")
-        let homeButton = document.getElementById("home-button")
+        const cancelOrderButton = document.getElementById("cancel-order-button")
+        const homeButton = document.getElementById("home-button")
         cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
         homeButton.addEventListener("click", e => renderHomeView(e))
     }

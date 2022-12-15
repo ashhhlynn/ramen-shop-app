@@ -46,7 +46,7 @@ class MenuItem {
     }
     
     addToCart(){
-        let cartContents = document.getElementById("cart-contents")
+        const cartContents = document.getElementById("cart-contents")
             let cartItem = document.createElement("li")
                 cartItem.id = `item-${this.id}`
                 cartItem.innerHTML += `${this.menuItemDisplay()}
@@ -75,7 +75,6 @@ class MenuItem {
         }
     }
     
-
 }
 
 
