@@ -32,4 +32,4 @@ class Menu {
         menuButtons.firstChild.addEventListener("click", e => MenuItem.renderMenuItems(e))
     }
     
-    }
+}

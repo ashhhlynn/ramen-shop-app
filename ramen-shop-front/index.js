@@ -32,18 +32,19 @@ function addCartToDom(){
 
 function checkCartLength(){
     let listItems = document.querySelectorAll("li")
-    if (listItems.length == 0){
+    if (listItems.length == 0) {
         return true
     }
 }
 
 function orderEligible(e){
     e.preventDefault
-    if (checkCartLength())
-    {
-        alert("Your cart is empty!")}
-    else 
-    {Order.makeNewOrderForm(e)}
+    if (checkCartLength()) {
+        alert("Your cart is empty!")
+    }
+    else {
+        Order.makeNewOrderForm(e)
+    }
 }
 
 function taxMath(){
@@ -64,10 +65,10 @@ function renderHomeView(){
     document.getElementById("container").hidden = true
     let orderCont = document.getElementById("order")
     removeAllChildNodes(orderCont)
+    cart_total = 0; 
 }
 
 function clearCartAndContainers(){
-    cart_total = 0; 
     const collection = Array.from(document.getElementById("container").children);
     console.log(collection)  
         collection.forEach(div => {removeAllChildNodes(div)})        

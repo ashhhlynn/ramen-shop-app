@@ -1,4 +1,5 @@
-class MenuItem{
+class MenuItem {
+
     static all = [];
     
     constructor(id, name, price, description, image_url){
@@ -10,8 +11,9 @@ class MenuItem{
         MenuItem.all.push(this);
     }
     
-
-
+    menuItemDisplay(){
+        return this.name + " | $" + this.price
+    }
 
     static renderMenuItems(e){  
         let menu = Menu.all.find(menu=> menu.id == e.target.id)
@@ -22,7 +24,7 @@ class MenuItem{
                 menuItem.className = "card"
                 menuItem.innerHTML+= `    
                     <img src="${menu_item.image_url}"><br>
-                    ${menu_item.name} | $${menu_item.price}
+                    ${menu_item.menuItemDisplay()}
                     <button class="add-button" id="${menu_item.id}">+</button><br>
                     <i>${menu_item.description}</i>
                 `
@@ -35,7 +37,7 @@ class MenuItem{
         e.preventDefault()
         let menu_item = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
         if (e.target.innerText == '+') {
-            menu_item.addToCart(e.target)
+            menu_item.addToCart()
         }
         else if 
         (e.target.innerText === '-') {
@@ -43,11 +45,11 @@ class MenuItem{
         }
     }
     
-    addToCart(menuItem){
+    addToCart(){
         let cartContents = document.getElementById("cart-contents")
             let cartItem = document.createElement("li")
                 cartItem.id = `item-${this.id}`
-                cartItem.innerHTML += `${menuItem.previousSibling.textContent}
+                cartItem.innerHTML += `${this.menuItemDisplay()}
                 <button class="remove-button" id='${this.id}'>-</button>`
                 cartItem.lastElementChild.addEventListener("click", e => MenuItem.listenButtons(e))
                 console.log(cartItem.lastElementChild)
