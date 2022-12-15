@@ -60,9 +60,10 @@ function renderTaxMath(){
 }
 
 function renderHomeView(){
-    document.getElementById("start").hidden = !show
-    document.getElementById("container").hidden = show;
-    clearCartAndContainers() 
+    document.getElementById("start").hidden = false
+    document.getElementById("container").hidden = true
+    let orderCont = document.getElementById("order")
+    removeAllChildNodes(orderCont)
 }
 
 function clearCartAndContainers(){
@@ -76,6 +77,4 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
-
-
 }

@@ -52,7 +52,6 @@ static createOrder(e){
             let order = new Order(json.id, json.name, json.total, json.items)
             console.log(order)
             order.renderOrder()
-            order.getItemInformation()
         })
         .catch(function(error) {
             alert("There were errors processing your order");
@@ -61,32 +60,32 @@ static createOrder(e){
 }
 }
 
-getItemInformation(){
-this.items.forEach(item => {
-let mi = MenuItem.all.filter(menuItem => menuItem.id == item.menu_item_id)
-mi.forEach(i => {return( `${i.name} | $${i.price}`)})
-})}
-
- 
-
-
-
-
 
 static renderOrderView(){
-    let cartContainer = document.getElementById('cart')
-    let menuItemsList = document.getElementById('menu-items-list')
-    let menuList = document.getElementById('menu-list')
-    cartContainer.hidden = true 
-    removeAllChildNodes(menuItemsList)
-    removeAllChildNodes(menuList)
-    const removeBtns = document.querySelectorAll(".remove-button")
-    removeBtns.forEach(button => button.remove())
+    clearCartAndContainers()
+    document.getElementById("container").hidden = true
 }
+
+getItemInformation(){
+    let okk = []
+    this.items.forEach(item => {
+      let m = MenuItem.all.find(mi => mi.id == item.menu_item_id)
+        console.log(m)
+        okk.push(m)
+    })
+return okk
+
+}
+
 
 renderOrder(){
     Order.renderOrderView()
-    let cartContents = document.getElementById('cart-contents')
+    let okk = []
+    this.items.forEach(item => {
+      let m = MenuItem.all.find(mi => mi.id == item.menu_item_id)
+        console.log(m)
+        okk.push(m)
+    })
     let orderContainer = document.getElementById("order")
         let orderContents = document.createElement("div")
             orderContents.id = "order-contents"
@@ -95,9 +94,11 @@ renderOrder(){
         Order #${this.id}<br>
         Name: ${this.name}<br>
         Total: $${this.total}<br><br>
-        Items:<br></b>
-        ${cartContents.innerHTML}<br>
-        ${renderTaxMath()}<br>
+        Items:<br></b> `
+        okk.forEach(item => {
+            orderContents.innerHTML += `${item.name}|${item.price}<br>`})
+            orderContents.innerHTML += `
+        <br>${renderTaxMath()}<br>
         <button class="cancel-order-button" id="cancel-order-button">Cancel Order</button>
         <button class="home-button" id="home-button">Home</button> 
         `
