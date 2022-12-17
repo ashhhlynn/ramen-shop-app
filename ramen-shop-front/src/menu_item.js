@@ -2,25 +2,23 @@ class MenuItem {
 
     static all = [];
     
-    constructor(id, name, price, description, menu_id, image_url){
+    constructor(id, name, price, description, image_url) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.image_url = image_url;
-        this.menu_id = menu_id;
         MenuItem.all.push(this);
     }
 
-    menuItemDisplay(){
+    menuItemDisplay() {
         return this.name + " | $" + this.price
     }
 
-    renderMenuItems(){
+    renderMenuItems() {
         const menuItemsList = document.getElementById("menu-items-list")
             let card = document.createElement("div");
             card.className = "card"
-            card.id = `${this.menu_id}`
             card.innerHTML+= `    
                 <img src="${this.image_url}"><br>
                 ${this.menuItemDisplay()}
@@ -31,7 +29,7 @@ class MenuItem {
         menuItemsList.appendChild(card)
     }
 
-    static cartListeners(e){
+    static cartListeners(e) {
         e.preventDefault()
         let menu_item = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
         if (e.target.innerText === '+') {
@@ -43,52 +41,34 @@ class MenuItem {
         }
     }
     
-    addToCart(){
-        if (document.getElementById("cart-contents")){
-        const cartContents = document.getElementById("cart-contents")
-            let cartItem = document.createElement("li")
-                cartItem.id = `item-${this.id}`
-                cartItem.innerHTML += `${this.menuItemDisplay()}
-                <button class="remove-button" id='${this.id}'>-</button>`
-                cartItem.lastElementChild.addEventListener("click", e => MenuItem.cartListeners(e))
-        cartContents.appendChild(cartItem)   
-        cart_total += this.price 
-        alert("This item was added to your cart!")
-        MenuItem.renderCartTotal()}
+    addToCart() {
+        if (document.getElementById("cart-contents")) {
+            const cartContents = document.getElementById("cart-contents")
+                let cartItem = document.createElement("li")
+                    cartItem.id = `item-${this.id}`
+                    cartItem.innerHTML += `${this.menuItemDisplay()}
+                    <button class="remove-button" id='${this.id}'>-</button>`
+                    cartItem.lastElementChild.addEventListener("click", e => MenuItem.cartListeners(e))
+            cartContents.appendChild(cartItem)   
+            cart_total += this.price 
+            alert("This item was added to your cart!")
+            MenuItem.renderCartTotal()
+        }
         else {
             alert("Click Order on the navigation menu to add to your cart!")
         }  
     }
 
-    removeFromCart(){
+    removeFromCart() {
         document.getElementById(`item-${this.id}`).remove()
         cart_total -= this.price 
         alert("This item was removed from your cart!")
         MenuItem.renderCartTotal()
     }
    
-    static renderCartTotal(){
+    static renderCartTotal() {
         const cartTotal = document.getElementById("cart-total")    
-            cartTotal.innerHTML = `${renderTaxMath()}`
+        cartTotal.innerHTML = `${renderTaxMath()}`
     }
 
-
-
-
-
-
-
-
-    
-    static findMenu(e){ 
-        console.log(e.target)      
-        e.preventDefault()
-        const menuItemsList = document.getElementById("menu-items-list")
-        menuItemsList.innerHTML = ""
-        if (e.target.className == ('menu-button')){
-            let m = Menu.all.find(m => m.id == e.target.id)
-            m.menu_items.forEach(menu_item => menu_item.renderMenuItems())
-        }
-        
-    }
 }
