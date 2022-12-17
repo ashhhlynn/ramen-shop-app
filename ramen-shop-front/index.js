@@ -10,15 +10,16 @@ function mainListeners(e) {
     e.preventDefault()
     const menuItemsList = document.getElementById("menu-items-list")
     menuItemsList.innerHTML = ""
+    resetOrder()
     if (e.target.id == ('start-order')) {
-        resetOrder()
         addCartToDom()
+        cart_total = 0;
         showOrHide(false, true)
         document.getElementById("start-order").disabled = true
     }
     else if (e.target.id == ('home-view')) {
-        resetOrder()
         resetCart() 
+        cart_total = 0;
         showOrHide(true, false)
         document.getElementById("start-order").disabled = false
     }
@@ -82,7 +83,6 @@ function resetCart() {
 }
 
 function resetOrder() {
-    cart_total = 0;
     const orderContainer = document.getElementById("order")
     removeAllChildNodes(orderContainer)
 }
