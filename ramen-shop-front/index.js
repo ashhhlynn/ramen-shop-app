@@ -1,33 +1,57 @@
 cart_total = 0;
-const startButton = document.getElementById("start-button")
 
 document.addEventListener("DOMContentLoaded", function(){
-    const startButton = document.getElementById("start-button")
-    startButton.addEventListener("click", startProgram)
+    Menu.fetchMenus()
+    const navigationButton = Array.from(document.querySelectorAll(".nav"))
+    navigationButton.forEach(button => button.addEventListener("click", e => mainListeners(e)))
 })
 
-function startProgram(){ 
-    Menu.fetchMenus()
-    addCartToDom()
-    document.getElementById("start").hidden = true
-    document.getElementById("container").hidden = false
+function mainListeners(e){
+    e.preventDefault()
+    const menuItemsList = document.getElementById("menu-items-list")
+    menuItemsList.innerHTML = ""
+    resetOrder()
+    if (e.target.id == ('start-order')){
+        addCartToDom()
+        showOrHide(false, true, true)
+        document.getElementById("start-order").disabled = true
+    }
+    else if (e.target.id == ('home-view')){
+        showOrHide(true, false, false)
+        resetCart()
+        document.getElementById("start-order").disabled = false
+    }
+    else if (e.target.id == ('menus-view')){ 
+        showOrHide(false, true, true)
+        MenuItem.all.forEach((menu_item => {menu_item.renderMenuItems()}))
+    }
+    else if (e.target.className == ('menu-button')){
+        let m = Menu.all.find(m => m.id == e.target.id)
+        m.menu_items.forEach(menu_item => menu_item.renderMenuItems())
+    }
+}
+
+function showOrHide(a, b, c){
+    document.getElementById("container").hidden = a
+    document.getElementById("order").hidden = b
+    document.getElementById("start").hidden = c
 }
 
 function addCartToDom(){
     const cartContainer = document.getElementById("cart")
         let title = document.createElement("h2")
         title.innerHTML = "Your Cart"
-        let cartContents = document.createElement("div")
-            cartContents.id = "cart-contents"
-        let cartTotal = document.createElement("div")
-            cartTotal.id = "cart-total"
+        let contentsDiv = document.createElement("div")
+            contentsDiv.id = "cart-contents"
+        let totalDiv = document.createElement("div")
+            totalDiv.id = "cart-total"
         let checkoutOrderButton = document.createElement("button")
             checkoutOrderButton.id = "checkout-order-button"
             checkoutOrderButton.innerHTML = "Checkout"
-            checkoutOrderButton.addEventListener("click", e => orderEligible(e))
+            checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
     cartContainer.appendChild(title)
-    cartContainer.appendChild(cartContents)
-    cartContainer.appendChild(cartTotal)
+    cartContainer.appendChild(contentsDiv)
+    cartContainer.appendChild(totalDiv)
     cartContainer.appendChild(checkoutOrderButton)
     cartContainer.hidden = false
 }
@@ -35,17 +59,8 @@ function addCartToDom(){
 function checkCartLength(){
     let listItems = document.querySelectorAll("li")
     if (listItems.length == 0) {
+        alert("Your must have items in your cart to place an order!")
         return true
-    }
-}
-
-function orderEligible(e){
-    e.preventDefault
-    if (checkCartLength()) {
-        alert("Your cart is empty!")
-    }
-    else {
-        Order.makeNewOrderForm(e)
     }
 }
 
@@ -62,23 +77,15 @@ function renderTaxMath(){
    `   
 }
 
-function showOrHide(){
-    document.getElementById("start").hidden = false
-    document.getElementById("container").hidden = true
-}
-
-function renderHomeView(){
-    showOrHide(true)
-    const orderCont = document.getElementById("order")
-    removeAllChildNodes(orderCont)
+function resetCart(){
     cart_total = 0; 
-    document.getElementById("container").remove()
+    const cartContainer = document.getElementById("cart")
+    removeAllChildNodes(cartContainer)
 }
 
-function clearCartAndContainers(){
-    const collection = Array.from(document.getElementById("container").children);
-    console.log(collection)  
-        collection.forEach(div => {removeAllChildNodes(div)})        
+function resetOrder(){
+    const orderContainer = document.getElementById("order")
+    removeAllChildNodes(orderContainer)
 }
 
 function removeAllChildNodes(parent) {
@@ -86,3 +93,8 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+
+
+
+

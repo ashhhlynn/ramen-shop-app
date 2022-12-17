@@ -17,7 +17,7 @@ class Menu {
                 let menu = (new Menu(menuObj.id, menuObj.category))
                 Menu.all.push(menu)
                 menuObj.menu_items.forEach(function(mI){
-                    menu.menu_items.push(new MenuItem(mI.id, mI.name, mI.price, mI.description, mI.image_url))
+                    menu.menu_items.push(new MenuItem(mI.id, mI.name, mI.price, mI.description, mI.menu_id, mI.image_url))
                 })
                 menu.renderMenus()
             })
@@ -26,11 +26,11 @@ class Menu {
     
     renderMenus(){
         const menuList = document.getElementById("menu-list")
-            let menuButtons = document.createElement("div");
-                menuButtons.id = "menu-buttons"
-                menuButtons.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
-        menuList.appendChild(menuButtons)
-        menuButtons.firstChild.addEventListener("click", e => MenuItem.renderMenuItems(e))
+            let menuCategories = document.createElement("div");
+                menuCategories.id = `menu-buttons-${this.id}`
+                menuCategories.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
+        menuList.appendChild(menuCategories)
+        menuCategories.firstChild.addEventListener("click", e => mainListeners(e))
     }
     
 }

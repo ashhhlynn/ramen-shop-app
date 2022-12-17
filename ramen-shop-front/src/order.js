@@ -8,6 +8,7 @@ class Order {
     }
 
     static makeNewOrderForm(){
+        if (!checkCartLength()){
         const cartContainer = document.getElementById("cart")
             let form = document.createElement("form")
                 let input = document.createElement("input")
@@ -23,13 +24,13 @@ class Order {
             form.appendChild(submit)
         cartContainer.appendChild(form)
         document.getElementById("checkout-order-button").disabled = true;
-        form.addEventListener("submit", e => Order.createOrder(e))
+        form.addEventListener("submit", e => Order.createOrder(e))}
     }
 
     static createOrder(e){
         e.preventDefault()
-        let listItemsArray = Array.from(document.querySelectorAll("li"))
-        if (listItemsArray.length > 0) {
+        if (!checkCartLength()) {
+            let listItemsArray = Array.from(document.querySelectorAll("li"))
             const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
             console.log(items)
             fetch("http://localhost:3000/orders", {
@@ -60,13 +61,6 @@ class Order {
         }
     }
 
-    static renderOrderView(){
-        clearCartAndContainers()
-        document.getElementById("container").hidden = true
-    }
-
-
-
     renderOrder(){
         Order.renderOrderView()
         const orderContainer = document.getElementById("order")
@@ -85,13 +79,15 @@ class Order {
             orderContents.innerHTML += `
                 <br>${renderTaxMath()}<br>
                 <button class="cancel-order-button" id="cancel-order-button">Cancel Order</button>
-                <button class="home-button" id="home-button">Home</button> 
                 `
         orderContainer.appendChild(orderContents)
         const cancelOrderButton = document.getElementById("cancel-order-button")
-        const homeButton = document.getElementById("home-button")
         cancelOrderButton.addEventListener("click", e => this.cancelOrder(e))
-        homeButton.addEventListener("click", e => renderHomeView(e))
+    }
+
+   static renderOrderView(){
+        showOrHide(true, false, true)
+        document.getElementById("start-order").disabled = false
     }
 
     cancelOrder(e){
@@ -103,8 +99,8 @@ class Order {
             "Accept": "application/json"
             },
         })
-        alert("Your order is canceled")
-        renderHomeView()
+        alert("Your order was canceled!")
+        showOrHide(true, true, false)
     }
 
 }
