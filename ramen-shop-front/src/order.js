@@ -65,6 +65,7 @@ class Order {
     renderOrder() {
         Order.renderOrderView()
         const orderContainer = document.getElementById("order")
+        orderContainer.hidden = false
             let orderContents = document.createElement("div")
             orderContents.id = "order-contents"
             orderContents.innerHTML = `
@@ -87,8 +88,9 @@ class Order {
     }
 
    static renderOrderView() {
-        showOrHide(true, false, true)
+        showOrHide(true, true)
         document.getElementById("start-order").disabled = false
+        resetCart()
     }
 
     cancelOrder(e) {
@@ -101,7 +103,7 @@ class Order {
             },
         })
         alert("Your order was canceled!")
-        showOrHide(true, true, false)
+        document.getElementById("order").hidden = true
     }
 
 }

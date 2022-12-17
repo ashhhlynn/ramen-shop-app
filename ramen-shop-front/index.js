@@ -13,16 +13,16 @@ function mainListeners(e) {
     resetOrder()
     if (e.target.id == ('start-order')) {
         addCartToDom()
-        showOrHide(false, true, true)
+        showOrHide(false, true)
         document.getElementById("start-order").disabled = true
     }
     else if (e.target.id == ('home-view')) {
-        showOrHide(true, false, false)
         resetCart()
+        showOrHide(true, false)
         document.getElementById("start-order").disabled = false
     }
     else if (e.target.id == ('menus-view')) { 
-        showOrHide(false, true, true)
+        showOrHide(false, true)
         MenuItem.all.forEach((menu_item => {menu_item.renderMenuItems()}))
     }
     else if (e.target.className == ('menu-button')) {
@@ -31,10 +31,9 @@ function mainListeners(e) {
     }
 }
 
-function showOrHide(a, b, c) {
+function showOrHide(a, b) {
     document.getElementById("container").hidden = a
-    document.getElementById("order").hidden = b
-    document.getElementById("start").hidden = c
+    document.getElementById("start").hidden = b
 }
 
 function addCartToDom() {
