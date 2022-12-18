@@ -1,4 +1,4 @@
-cart_total = 0;
+let cart_total = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
     Menu.fetchMenus()
@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 function mainListeners(e) {
+    console.log(cart_total)
     e.preventDefault()
     const menuItemsList = document.getElementById("menu-items-list")
     menuItemsList.innerHTML = ""
