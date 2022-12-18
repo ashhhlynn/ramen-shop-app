@@ -17,7 +17,7 @@ class MenuItem {
 
     renderMenuItems() {
         const menuItemsList = document.getElementById("menu-items-list")
-            let card = document.createElement("div");
+            const card = document.createElement("div");
             card.className = "card"
             card.innerHTML+= `    
                 <img src="${this.image_url}"><br>
@@ -31,26 +31,26 @@ class MenuItem {
 
     static cartListeners(e) {
         e.preventDefault()
-        let menu_item = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
+        let menuItem = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
         if (e.target.innerText === '+') {
-            menu_item.addToCart()
+            menuItem.addToCart()
         }
         else if 
         (e.target.innerText === '-') {
-            menu_item.removeFromCart()
+            menuItem.removeFromCart()
         }
     }
     
     addToCart() {
         if (document.getElementById("cart-contents")) {
             const cartContents = document.getElementById("cart-contents")
-                let cartItem = document.createElement("li")
+                const cartItem = document.createElement("li")
                     cartItem.id = `item-${this.id}`
                     cartItem.innerHTML += `${this.menuItemDisplay()}
                     <button class="remove-button" id='${this.id}'>-</button>`
                     cartItem.lastElementChild.addEventListener("click", e => MenuItem.cartListeners(e))
             cartContents.appendChild(cartItem)   
-            cart_total += this.price 
+            cartTotal += this.price 
             alert("This item was added to your cart!")
             MenuItem.renderCartTotal()
         }
@@ -61,14 +61,14 @@ class MenuItem {
 
     removeFromCart() {
         document.getElementById(`item-${this.id}`).remove()
-        cart_total -= this.price 
+        cartTotal -= this.price 
         alert("This item was removed from your cart!")
         MenuItem.renderCartTotal()
     }
    
     static renderCartTotal() {
-        const cartTotal = document.getElementById("cart-total")    
-        cartTotal.innerHTML = `${renderTaxMath()}`
+        const cartTotalDiv = document.getElementById("cart-total")    
+        cartTotalDiv.innerHTML = `${renderTaxMath()}`
     }
 
 }

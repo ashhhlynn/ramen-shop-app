@@ -31,7 +31,7 @@ class Order {
     static createOrder(e) {
         e.preventDefault()
         if (!checkCartLength()) {
-            let listItemsArray = Array.from(document.querySelectorAll("li"))
+            const listItemsArray = Array.from(document.querySelectorAll("li"))
             const items = listItemsArray.map(li => {return {id: parseInt(li.id.slice(5))}})
             console.log(items)
             fetch("http://localhost:3000/orders", {
@@ -66,7 +66,7 @@ class Order {
         Order.renderOrderView()
         const orderContainer = document.getElementById("order")
         orderContainer.hidden = false
-            let orderContents = document.createElement("div")
+            const orderContents = document.createElement("div")
             orderContents.id = "order-contents"
             orderContents.innerHTML = `
                 <h2><b>Your Order is Complete!</h2><br>

@@ -26,7 +26,7 @@ class Menu {
     
     renderMenus() {
         const menuList = document.getElementById("menu-list")
-            let menuCategories = document.createElement("div");
+            const menuCategories = document.createElement("div");
             menuCategories.id = 'menu-buttons'
             menuCategories.innerHTML = `<button class="menu-button" id=${this.id}>${this.category}</button>`
         menuList.appendChild(menuCategories)

@@ -1,4 +1,4 @@
-let cart_total = 0;
+let cartTotal = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
     Menu.fetchMenus()
@@ -7,30 +7,30 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 function mainListeners(e) {
-    console.log(cart_total)
+    console.log(cartTotal)
     e.preventDefault()
     const menuItemsList = document.getElementById("menu-items-list")
     menuItemsList.innerHTML = ""
     resetOrder()
     if (e.target.id == ('start-order')) {
         addCartToDom()
-        cart_total = 0;
+        cartTotal = 0;
         showOrHide(false, true)
         document.getElementById("start-order").disabled = true
     }
     else if (e.target.id == ('home-view')) {
         resetCart() 
-        cart_total = 0;
+        cartTotal = 0;
         showOrHide(true, false)
         document.getElementById("start-order").disabled = false
     }
     else if (e.target.id == ('menus-view')) { 
         showOrHide(false, true)
-        MenuItem.all.forEach((menu_item => {menu_item.renderMenuItems()}))
+        MenuItem.all.forEach((menuItem => {menuItem.renderMenuItems()}))
     }
     else if (e.target.className == ('menu-button')) {
-        let m = Menu.all.find(m => m.id == e.target.id)
-        m.menu_items.forEach(menu_item => menu_item.renderMenuItems())
+        let menu = Menu.all.find(m => m.id == e.target.id)
+        menu.menu_items.forEach(menuItem => menuItem.renderMenuItems())
     }
 }
 
@@ -41,13 +41,13 @@ function showOrHide(a, b) {
 
 function addCartToDom() {
     const cartContainer = document.getElementById("cart")
-        let title = document.createElement("h2")
+        const title = document.createElement("h2")
         title.innerHTML = "Your Cart"
-        let contentsDiv = document.createElement("div")
+        const contentsDiv = document.createElement("div")
         contentsDiv.id = "cart-contents"
-        let totalDiv = document.createElement("div")
+        const totalDiv = document.createElement("div")
         totalDiv.id = "cart-total"
-        let checkoutOrderButton = document.createElement("button")
+        const checkoutOrderButton = document.createElement("button")
         checkoutOrderButton.id = "checkout-order-button"
         checkoutOrderButton.innerHTML = "Checkout"
         checkoutOrderButton.addEventListener("click", e => Order.makeNewOrderForm(e))
@@ -58,7 +58,7 @@ function addCartToDom() {
 }
 
 function checkCartLength() {
-    let listItems = document.querySelectorAll("li")
+    const listItems = document.querySelectorAll("li");
     if (listItems.length == 0) {
         alert("Your must have items in your cart to place an order!")
         return true
@@ -66,13 +66,13 @@ function checkCartLength() {
 }
 
 function taxMath() {
-    return [Math.round(cart_total * 7)/100, Math.round(cart_total * 7)/100 + cart_total]
+    return [Math.round(cartTotal * 7)/100, Math.round(cartTotal * 7)/100 + cartTotal]
 }
 
 function renderTaxMath() {
    const [tax, realTotal] = taxMath()
    return `
-   Subtotal: $${cart_total}<br>
+   Subtotal: $${cartTotal}<br>
    Tax: $${tax}<br>
    <b>Total: $${realTotal}</b>
    `   
