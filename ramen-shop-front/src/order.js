@@ -10,20 +10,20 @@ class Order {
     static makeNewOrderForm() {
         if (!checkCartLength()) {
             const cartContainer = document.getElementById("cart")
-                let form = document.createElement("form")
-                    let input = document.createElement("input")
+                const form = document.createElement("form")
+                    const input = document.createElement("input")
                     input.id = 'name'
                     input.type = "text"
                     input.placeholder = "Enter your name:"
                     input.required = true 
-                    let submit = document.createElement("button")
+                    const submit = document.createElement("button")
                     submit.type = "submit"
                     submit.id = "submit"
                     submit.innerText = "Place Order"
                 form.appendChild(input)
                 form.appendChild(submit)
             cartContainer.appendChild(form)
-            document.getElementById("checkout-order-button").disabled = true;
+            document.getElementById("checkout-order-button").disabled = true
             form.addEventListener("submit", e => Order.createOrder(e))
         }
     }
@@ -47,16 +47,16 @@ class Order {
                 })
             })
             .then(function(resp){
-                return resp.json();
+                return resp.json()
             })
             .then(function(json){
                 console.log(json)
-                let order = new Order(json.id, json.name, json.total, json.items)
+                const order = new Order(json.id, json.name, json.total, json.items)
                 console.log(order)
                 order.renderOrder()
             })
             .catch(function(error) {
-                alert("There were errors processing your order");
+                alert("There were errors processing your order")
                 console.log(error.message);
             })
         }
@@ -75,7 +75,7 @@ class Order {
                 Total: $${this.total}<br><br>
                 Items:<br></b> `
             this.items.forEach(item => {
-                let menuItem = MenuItem.all.find(menuItem => menuItem.id == item.menu_item_id)
+                const menuItem = MenuItem.all.find(menuItem => menuItem.id == item.menu_item_id)
                 orderContents.innerHTML += `${menuItem.menuItemDisplay()} <br>`
             })
             orderContents.innerHTML += `

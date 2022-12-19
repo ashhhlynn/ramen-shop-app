@@ -25,11 +25,11 @@ function mainListeners(e) {
         document.getElementById("start-order").disabled = false
     }
     else if (e.target.id == ('menus-view')) { 
-        showOrHide(false, true)
+        showOrHide(false, true )
         MenuItem.all.forEach((menuItem => {menuItem.renderMenuItems()}))
     }
     else if (e.target.className == ('menu-button')) {
-        let menu = Menu.all.find(m => m.id == e.target.id)
+        const menu = Menu.all.find(m => m.id == e.target.id)
         menu.menu_items.forEach(menuItem => menuItem.renderMenuItems())
     }
 }
@@ -90,7 +90,7 @@ function resetOrder() {
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
+        parent.removeChild(parent.firstChild)
     }
 }
 

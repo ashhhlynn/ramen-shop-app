@@ -17,7 +17,7 @@ class MenuItem {
 
     renderMenuItems() {
         const menuItemsList = document.getElementById("menu-items-list")
-            const card = document.createElement("div");
+            const card = document.createElement("div")
             card.className = "card"
             card.innerHTML+= `    
                 <img src="${this.image_url}"><br>
@@ -31,7 +31,7 @@ class MenuItem {
 
     static cartListeners(e) {
         e.preventDefault()
-        let menuItem = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
+        const menuItem = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
         if (e.target.innerText === '+') {
             menuItem.addToCart()
         }
