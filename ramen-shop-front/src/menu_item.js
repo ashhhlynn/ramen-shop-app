@@ -30,7 +30,7 @@ class MenuItem {
     }
 
     static cartListeners(e) {
-        e.preventDefault()
+
         const menuItem = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
         if (e.target.innerText === '+') {
             menuItem.addToCart()

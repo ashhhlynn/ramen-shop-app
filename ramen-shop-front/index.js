@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function mainListeners(e) {
     console.log(cartTotal)
-    e.preventDefault()
     const menuItemsList = document.getElementById("menu-items-list")
     menuItemsList.innerHTML = ""
     resetOrder()

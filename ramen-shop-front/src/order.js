@@ -93,8 +93,7 @@ class Order {
         resetCart()
     }
 
-    cancelOrder(e) {
-        e.preventDefault()
+    cancelOrder() {
         fetch("http://localhost:3000/orders"+`/${this.id}`, {
             method: "DELETE",
             headers: { 
