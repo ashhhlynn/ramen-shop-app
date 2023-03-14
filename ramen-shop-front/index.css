@@ -1,15 +1,20 @@
 .header {
-  overflow: hidden;
-  background-color: #36454f;
   padding: 10px 10px;
-  opacity: 95%;
+  overflow: hidden;
+  background-color: black;
+  height: 200px;
+  background:url("https://www.wondereight.com/wp-content/uploads/2016/08/W8_Miyabi_header_wide.jpg"); 
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-x: right;
+  background-position-y: 10%;
 }
 
-.header img{
-  margin-top: 6px;
-  margin-left: 20px;
-  height: 64.2px;
-  width: 134.5px;
+.header img {
+  height: 100px;
+  width: 200px;
+  margin-top: 40px;
+  margin-left: 50px;
 }
 
 .header-right {
@@ -18,18 +23,18 @@
 }
 
 .header button {
-  margin-top: 8px;
+  margin-top: 50px;
   float: left;
   color: #F0f0f0;
   text-align: center;
   padding: 10px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 25px;
   border-radius: 4px;
   background: none;
   border: none;
-  background-color: black;
+  font-weight: bold;
   font-family: 'MS PGothic', Osaka, Arial, sans-serif;
   margin-right: 22px;
   width: 87px;
@@ -40,11 +45,13 @@
   color: black;
 }
 
+
 body{
+  background-image:url("https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Best-Ramen-in-Dubai-C-14-04-1024x640.jpg");
+
   font-family: "UniversLTStd-BoldCn", sans-serif;  
   font-size: 16px;
   color: #313131;
-  background-image: url("https://www.tastingtable.com/img/gallery/what-makes-japanese-ramen-different-from-chinese-ramen/l-intro-1655408349.jpg")
   ;
   background-repeat: no-repeat;
   background-size: cover; 
@@ -59,55 +66,56 @@ h2{
     margin-top: 14px;
     line-height: 20px;
     padding: .5em 0 .5em;
-    color: #5d5d5d;
+    color: black
 }
 
 .start{
-    background: white;
-    color: black;
+    color: white;
     box-sizing: border-box;
-    height: 330px;
-    width: 550px;
+    height: 550px;
+    width: 700px;
     border-radius: 25px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-left: 930px;
     font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-    text-align: center;
-    opacity: 85%;
-    font-size: 38px;
-    margin-top: 72px
+    font-size: 22px;
+    margin-top: 89px;
+    font-weight: 200;
 }
 
 .start img{
-  width: 240px;
-  height: 240px;
+  margin-top: 30px;
+  width: 200px;
+  height: 100px;
+  margin-left: 60px;
 }
 
 .container{
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     box-sizing: border-box;
-    height: 1830px;
+    height: 2100px;
     border: black;
     background: white;
-    opacity: 95%;
     line-height: 19.2px;
     color: black;
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-left: auto;
 }
 
 .menu-items-list{
     display: inline-grid;
+    margin-left: auto;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 30px;
     position: absolute;
-    top: 130px;
-    left: 215px;
+    top: 250px;
+    left: 175px;
     color: #313131;
     max-height: inherit;
 }
 
 .card{
   font-family: "UniversLTStd-BoldCn", sans-serif;  
+  font-size: 14px;
   width: 235px;
   display: table;
   height: 235px;
@@ -123,16 +131,18 @@ img{
 }
 
 .cart{
-    color: 	#5d5d5d;
+    color: 	black;
     font-family: "UniversLTStd-BoldCn", sans-serif;     
     text-align: center;
     margin-top: 10px;    
-    line-height: 19.2px;
     width: 250px;
     position: absolute;
     right: 30px;
-    top: 105px;
-    background: white;
+    top: 240px;
+    background: #f0f0f0;
+    line-height: 26px;
+
+
 }
 
 #cart-contents{
@@ -160,32 +170,40 @@ img{
     margin-left: auto;
     margin-right: auto;
     opacity: 96%;
-    margin-top: 10px; 
+    margin-top:  auto;
     background: white;
+    vertical-align: middle;
 }
 
 .add-button{
-    border-color: white;
-    color: #313131;
-    width: 40px;
-    height: 40px;
-    font-weight: 500;
-    padding: 0.65em 0.65em 0.65em;
+    background-color: #a4ae9c;
+    color: #053637;
+    width: 30px;
+    height: 26px;
+    font-weight: 400;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     float: right;
     cursor: pointer;
+    margin-right: 5px;
+    border: none;
 }
 
 .remove-button{
-    border-color: white;
-    color: #313131;
-    font-weight: 500;
-    width: 16px;
-    height: 18x;
-    padding: 0.1em 0.1em 0.1em;
+    background-color: #FFFFFF;
+    color: black;
+    font-weight: 400;
+    font-size: 10px;
+    width: 20px;
+    height: 18px;
     font-family: "UniversLTStd-BoldCn", sans-serif; 
     text-align: center;
+    vertical-align: middle;
     cursor: pointer;
+    margin: auto;
+    border-radius: 0px;
+    border-color: grey;
+    outline: 0px;
+    float: right;
 }
 
 input[type=text]{
@@ -196,20 +214,36 @@ input[type=text]{
     overflow: hidden;
 }
 
-.menu-button, #checkout-order-button, #cancel-order-button, button[type=submit]{
-    background-color: #F0f0f0;
+
+.menu-button{
+  background-color: #Ffffff;
+  font-family: 'MS PGothic', Osaka, Arial, sans-serif;
+  display: inline-block;
+  border: 0px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 70px;
+  font-size: 22px;
+  border-radius: 2px;
+  color: #313131;
+  width: 140px;
+
+}
+
+ #checkout-order-button, #cancel-order-button, button[type=submit]{
+    background-color: #a4ae9c;
     font-family: 'MS PGothic', Osaka, Arial, sans-serif;
     display: inline-block;
-    outline: 0;
-    border: 0;
+    border: 0px;
+   outline: 0px;
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    height: 48px;
-    padding: 0 32px;
-    font-size: 22px;
-    border-radius: 6px;
-    color: #313131;
+    height: 36px;
+    font-size: 18px;
+    border-radius: 1px;
+    color: black;
     width: 190px;
+
 }

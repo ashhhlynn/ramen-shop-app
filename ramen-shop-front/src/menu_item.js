@@ -30,13 +30,12 @@ class MenuItem {
     }
 
     static cartListeners(e) {
-
         const menuItem = MenuItem.all.find(menuItem => menuItem.id == e.target.id)
         if (e.target.innerText === '+') {
             menuItem.addToCart()
         }
         else if 
-        (e.target.innerText === '-') {
+        (e.target.innerText === 'x') {
             menuItem.removeFromCart()
         }
     }
@@ -47,7 +46,7 @@ class MenuItem {
                 const cartItem = document.createElement("li")
                     cartItem.id = `item-${this.id}`
                     cartItem.innerHTML += `${this.menuItemDisplay()}
-                    <button class="remove-button" id='${this.id}'>-</button>`
+                    <button class="remove-button" id='${this.id}'>x</button>`
                     cartItem.lastElementChild.addEventListener("click", e => MenuItem.cartListeners(e))
             cartContents.appendChild(cartItem)   
             cartTotal += this.price 

@@ -1,7 +1,9 @@
 let cartTotal = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
+    console.log('a')
     Menu.fetchMenus()
+    console.log('b')
     const navigationButton = Array.from(document.querySelectorAll(".nav"))
     navigationButton.forEach(button => button.addEventListener("click", e => mainListeners(e)))
 })
@@ -24,7 +26,7 @@ function mainListeners(e) {
         document.getElementById("start-order").disabled = false
     }
     else if (e.target.id == ('menus-view')) { 
-        showOrHide(false, true )
+        showOrHide(false, true)
         MenuItem.all.forEach((menuItem => {menuItem.renderMenuItems()}))
     }
     else if (e.target.className == ('menu-button')) {

@@ -28,6 +28,7 @@ class Order {
         }
     }
 
+
     static createOrder(e) {
         e.preventDefault()
         if (!checkCartLength()) {
@@ -89,8 +90,8 @@ class Order {
 
    static renderOrderView() {
         showOrHide(true, true)
-        document.getElementById("start-order").disabled = false
         resetCart()
+        document.getElementById("start-order").disabled = false
     }
 
     cancelOrder() {

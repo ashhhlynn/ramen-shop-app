@@ -9,10 +9,11 @@ class Menu {
     }
         
     static fetchMenus() { 
+        console.log('c')
         fetch("http://localhost:3000/menus")
         .then(resp => resp.json())
         .then(function(menus){
-            console.log(menus)
+            console.log('d')
             menus.forEach(function(menuObj) {
                 const menu = (new Menu(menuObj.id, menuObj.category))
                 Menu.all.push(menu)
@@ -22,6 +23,7 @@ class Menu {
                 menu.renderMenus()
             })
         })
+    console.log('e')
     }
     
     renderMenus() {
