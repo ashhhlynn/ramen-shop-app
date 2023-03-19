@@ -10,6 +10,7 @@ Yume is a mock Japanese restaurant ordering SPA (single page application). The a
 - Active Record
 - Postgres database
 - JavaScript
+- Bootstrap CSS
 
 <h2>Installation</h2>
 
