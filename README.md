@@ -1,12 +1,19 @@
-# ramen-shop-app
+# Yume 
 
-Ramen Shop App:
+<h2>About</h2>
 
-Ramen Shop App is a mock ramen restaurant ordering application. The app is built with a RailsAPI and a JS front end.
+Yume is a mock Japanese restaurant ordering Single Page Application. The app is built with a Rails API and a JavaSript front end. A user can view menus by category, add and remove menu items from a shopping cart, and submit orders. 
 
-Installation:
+<h2>Tech Stack</h2>
 
-Fork and clone both repos, ramen-shop-back and ramen-shop-front.
+- Ruby on Rails as an API
+- Active Record
+- Postgres database
+- JavaScript
+
+<h2>Installation</h2>
+
+Fork and clone both repos: ramen-shop-back and ramen-shop-front.
 
 Cd into the backend 
 - Bundle install 
