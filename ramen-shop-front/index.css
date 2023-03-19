@@ -190,18 +190,34 @@ img {
   color: #313131;
 }
 
-#checkout-order-button, button[type=submit] {
+#checkout-order-button {
   background-color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 14px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  letter-spacing: .2px;
   margin: auto;
   color: black;
   margin-bottom: 20px;
-  width: 200px
+  width: 170px;
+  font-size: 16px;
+}
+
+button[type=submit] {
+  background-color: black;
+  border: none;
+  padding: 14px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing:.05px;
+  margin: auto;
+  color: white;
+  margin-bottom: 20px;
+  width: 170px;
+  font-size: 16px;
 }
 
 .remove-button {

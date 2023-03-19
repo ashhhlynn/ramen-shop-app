@@ -59,7 +59,7 @@ function addCartToDom() {
 function checkCartLength() {
     const listItems = document.querySelectorAll("li");
     if (listItems.length == 0) {
-        alert("Your must have items in your cart to place an order!")
+        alert("You must have items in your cart to place an order.")
         return true
     }
 }
