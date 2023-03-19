@@ -2,7 +2,7 @@
 
 <h2>About</h2>
 
-Yume is a mock Japanese restaurant ordering Single Page Application. The app is built with a Rails API and a JavaSript front end. A user can view menus by category, add and remove menu items from a shopping cart, and submit orders. 
+Yume is a mock Japanese restaurant ordering SPA (single page application). The app is built with a Rails API backend and a JavaSript frontend. A user can view menus by category, add and remove menu items from a shopping cart, and submit orders. 
 
 <h2>Tech Stack</h2>
 
