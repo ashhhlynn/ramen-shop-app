@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
 ramen_menu = Menu.create(category: "ramen")
 vegetatable_shoyu  = MenuItem.create(name: "Vegetable Shoyu", description: "Vegetable broth: tofu, green onion, corn, bok choy", menu_id: 5, price: 13, image_url: "https://olo-images-live.imgix.net/0c/0c8972a1e0a94e0687412c0fe3c93cee.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=3db6be6e5959f1b8803c28055a9023b4")
 tonkatsu_original = MenuItem.create(name: "Tonkatsu Original", description: "Pork broth: pork chashu, green onion, spinach, seasoned egg*, nori dried seaweed", menu_id: 5, price: 14, image_url: "https://olo-images-live.imgix.net/a0/a05b1b59f2f94386a933efd4bed4baae.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=b6ca82fa325073a6317f4600fc73692f")
@@ -30,6 +39,32 @@ dessert_menu = Menu.create(category: "dessert")
 panna_cotta = MenuItem.create(name: "Panna Cotta", description: "Caramel cream sauce, graham cracker and vanilla ice cream", menu_id: 8, price: 6, image_url: "https://olo-images-live.imgix.net/80/80cfab0f952042f3bbb80ab8d06df6aa.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=6b4b1fe77976352b96109113414d8db8")
 mochi = MenuItem.create(name: "Mochi", description: "Green tea mochi ice cream", menu_id: 8, price: 6, image_url: "https://olo-images-live.imgix.net/ff/ffa2822699ef4e0c9b9a6fbe37d87671.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=8d413fa4707798e29190f038ad9ad7d0")
 
+sushi_menu = Menu.create(category: "sushi")
 
+california = MenuItem.create(name: "California Dynamite", 
+description: "Baked baby scallop dynamite, eel sauce, california roll.",
+menu_id: 10,
+price: 14,
+image_url:"https://olo-images-live.imgix.net/16/162bfc211d8f4829b2fa4bda0bb82e02.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=2f0d6a52cb7e0fdcfb7390050882cf05"
+)
 
+crabtempura = MenuItem.create(name: "Soft Shell Crab Tempura Roll", 
+description: "Ikura, chive and spicy mayo on top of soft shell crab tempura roll with avocado, smelt egg and asparagus.",
+menu_id: 10,
+price: 18,
+image_url:"https://olo-images-live.imgix.net/d0/d0486208802b4744a6d1b44c1cd192de.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=d8fb0b1b404708c0939242843a47d247"
+)
 
+tac = MenuItem.create(name: "Tuna Albacore Crunch", 
+description: "Spicy tuna, crunch spicy albacore roll.",
+menu_id: 10,
+price: 20,
+image_url:"https://olo-images-live.imgix.net/ae/ae7b81ab66204fddb6334258b654920a.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=5b445a5cf385a05c52d8bec8a4bbcfcc"
+)
+
+csbass = MenuItem.create(name: "Chilean Sea Bass Roll", 
+description: "Chilean sea bass tempura, avocado roll. Serve with baby arugula.",
+menu_id: 10,
+price: 22,
+image_url:"https://olo-images-live.imgix.net/71/71b1a5b22bf44c949eb2f6ddf091eaf4.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=7efc62aacb594db7c1d19541788d36d2"
+)
