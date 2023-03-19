@@ -1,9 +1,7 @@
 let cartTotal = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('a')
     Menu.fetchMenus()
-    console.log('b')
     const navigationButton = Array.from(document.querySelectorAll(".nav"))
     navigationButton.forEach(button => button.addEventListener("click", e => mainListeners(e)))
 })
@@ -36,13 +34,13 @@ function mainListeners(e) {
 }
 
 function showOrHide(a, b) {
-    document.getElementById("container").hidden = a
+    document.getElementById("containerb").hidden = a
     document.getElementById("start").hidden = b
 }
 
 function addCartToDom() {
     const cartContainer = document.getElementById("cart")
-        const title = document.createElement("h2")
+        const title = document.createElement("h3")
         title.innerHTML = "Your Cart"
         const contentsDiv = document.createElement("div")
         contentsDiv.id = "cart-contents"
@@ -94,8 +92,3 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild)
     }
 }
-
-
-
-
-

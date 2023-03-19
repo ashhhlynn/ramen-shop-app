@@ -1,249 +1,214 @@
-.header {
-  padding: 10px 10px;
-  overflow: hidden;
-  background-color: black;
-  height: 200px;
-  background:url("https://www.wondereight.com/wp-content/uploads/2016/08/W8_Miyabi_header_wide.jpg"); 
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position-x: right;
-  background-position-y: 10%;
-}
-
-.header img {
-  height: 100px;
-  width: 200px;
-  margin-top: 40px;
-  margin-left: 50px;
-}
-
-.header-right {
-  float: right;
-  font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-}
-
-.header button {
-  margin-top: 50px;
-  float: left;
-  color: #F0f0f0;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 24px;
-  line-height: 25px;
-  border-radius: 4px;
-  background: none;
-  border: none;
-  font-weight: bold;
-  font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-  margin-right: 22px;
-  width: 87px;
-}
-
-.header button:hover {
-  background-color: #ddd;
+.order {
   color: black;
+  background: white;
+  font-weight: 400;
+  max-width: 440px;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: middle;
+  margin-top: -530px;
+  margin-left: 300px;
 }
 
-
-body{
-  background-image:url("https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Best-Ramen-in-Dubai-C-14-04-1024x640.jpg");
-
-  font-family: "UniversLTStd-BoldCn", sans-serif;  
-  font-size: 16px;
-  color: #313131;
-  ;
+.start {
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center center;
   background-attachment: fixed; 
+  font-size: 20px;
+  font-weight: 200;
+  background-image: url("https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Best-Ramen-in-Dubai-C-14-04-1024x640.jpg")
 }
 
-h2{
-    text-align: center;
-    font-size: 28px;
-    font-family:  'MS PGothic', Osaka, Arial, sans-serif;
-    margin-top: 14px;
-    line-height: 20px;
-    padding: .5em 0 .5em;
-    color: black
-}
-
-.start{
-    color: white;
-    box-sizing: border-box;
-    height: 550px;
-    width: 700px;
-    border-radius: 25px;
-    margin-left: 930px;
-    font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-    font-size: 22px;
-    margin-top: 89px;
-    font-weight: 200;
-}
-
-.start img{
-  margin-top: 30px;
-  width: 200px;
-  height: 100px;
-  margin-left: 60px;
-}
-
-.container{
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    box-sizing: border-box;
-    height: 2100px;
-    border: black;
-    background: white;
-    line-height: 19.2px;
-    color: black;
-    margin-top: 0px;
-    margin-left: auto;
-}
-
-.menu-items-list{
-    display: inline-grid;
-    margin-left: auto;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    position: absolute;
-    top: 250px;
-    left: 175px;
-    color: #313131;
-    max-height: inherit;
-}
-
-.card{
-  font-family: "UniversLTStd-BoldCn", sans-serif;  
-  font-size: 14px;
-  width: 235px;
-  display: table;
-  height: 235px;
+.welcome {
+  color: white;
+  margin-left:830px;
   box-sizing: border-box;
-  border: #313131;
-  color: #313131;
-  line-height: 23px;
-  }    
+  height: 575px;
+  width: 400px;
+  border-radius: 25px;
+  text-align: center;
+}
 
-img{
+#cancel-order-button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.welcome button {
+  background-color: white; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.welcome img {
+ margin-top: 30px;
+ width: 200px;
+ height: 100px;
+}
+
+img {
   height: 157px;
   width: 230px;
 }
 
-.cart{
-    color: 	black;
-    font-family: "UniversLTStd-BoldCn", sans-serif;     
-    text-align: center;
-    margin-top: 10px;    
-    width: 250px;
-    position: absolute;
-    right: 30px;
-    top: 240px;
-    background: #f0f0f0;
-    line-height: 26px;
-
-
+.p-5 {
+  background-image: url("https://www.wondereight.com/wp-content/uploads/2016/08/W8_Miyabi_header_wide.jpg");
+  height: 210px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  object-fit: 50%;
+  background-position-x: 220%;
+  background-position-y: 20%;
 }
 
-#cart-contents{
+.container-fluid button {
+  background: none;
+  color: white;
+  border: none;
+}
+
+.container-fluid ul {
+  background: none;
+  text-align: right;
+}
+
+.container-fluid img {
+  height: 100px;
+  width: 200px;
+}
+
+.col-sm-1 {
   text-align: left;
-  margin-left: 1em;
-  margin-bottom: .5em
+  margin-left: -40px;
 }
 
-#cart-total{
+.menu-button {
+  background-color: #Ffffff;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 70px;
+  font-size: 20px;
+  border-radius: 2px;
+  color: #313131;
+  border: 0px;
+}
+
+.menu-items-list {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  display: inline-grid;
+}
+
+.card {
+  width: 235px;
+  height: 235px;
+  display: table;
+  box-sizing: border-box;
+  border: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.col-sm-7 {
+  margin-left: 50px;
+}
+
+.cart {
+  color: #313131;
+  text-align: center;  
+  width: 250px;
+  position: absolute;
+  right: 30px;
+  top: 240px;
+  background: #f0f0f0;
+  line-height: 26px;
+  font-weight: 400;
+  display: border-box;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+}
+
+.add-button {
+  background-color: #f0f0f0;
+  color: black;
+  width: 30px;
+  height: 26px;
+  font-weight: 400;
+  float: right;
+  cursor: pointer;
+  margin-right: 5px;
+  border: none;
+}
+
+#cart h3 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#cart-contents {
+  padding: 10px 10px;
+  border-top: 2px solid #a7a9a8;
+  text-align: left; 
+}
+
+#cart-total {
+  padding: 10px 10px;
   text-align: left;
   margin-left: 2.5em;
-  margin-top: 1em;
+  margin-right: 2.5em;
   margin-bottom: 1em;
   color: #313131;
 }
 
-.order{
-    font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-    text-align: center;
-    font-size: 18px;
-    box-sizing: border-box;
-    line-height: 19.2px;
-    color: #313131;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 96%;
-    margin-top:  auto;
-    background: white;
-    vertical-align: middle;
-}
-
-.add-button{
-    background-color: #a4ae9c;
-    color: #053637;
-    width: 30px;
-    height: 26px;
-    font-weight: 400;
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    float: right;
-    cursor: pointer;
-    margin-right: 5px;
-    border: none;
-}
-
-.remove-button{
-    background-color: #FFFFFF;
-    color: black;
-    font-weight: 400;
-    font-size: 10px;
-    width: 20px;
-    height: 18px;
-    font-family: "UniversLTStd-BoldCn", sans-serif; 
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    margin: auto;
-    border-radius: 0px;
-    border-color: grey;
-    outline: 0px;
-    float: right;
-}
-
-input[type=text]{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 30px;
-    cursor: text;
-    overflow: hidden;
-}
-
-
-.menu-button{
-  background-color: #Ffffff;
-  font-family: 'MS PGothic', Osaka, Arial, sans-serif;
+#checkout-order-button, button[type=submit] {
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  border: 0px;
-  cursor: pointer;
-  margin-top: 20px;
+  font-size: 16px;
+  margin: auto;
+  color: black;
   margin-bottom: 20px;
-  height: 70px;
-  font-size: 22px;
-  border-radius: 2px;
-  color: #313131;
-  width: 140px;
-
+  width: 200px
 }
 
- #checkout-order-button, #cancel-order-button, button[type=submit]{
-    background-color: #a4ae9c;
-    font-family: 'MS PGothic', Osaka, Arial, sans-serif;
-    display: inline-block;
-    border: 0px;
-   outline: 0px;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 36px;
-    font-size: 18px;
-    border-radius: 1px;
-    color: black;
-    width: 190px;
-
+.remove-button {
+  float: right;
+  background-color: #FFFFFF;
+  margin-right: 7px;
+  color: black;
+  font-weight: 400;
+  font-size: 10px;
+  width: 24px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  outline: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

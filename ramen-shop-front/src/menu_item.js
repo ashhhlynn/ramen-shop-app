@@ -50,18 +50,19 @@ class MenuItem {
                     cartItem.lastElementChild.addEventListener("click", e => MenuItem.cartListeners(e))
             cartContents.appendChild(cartItem)   
             cartTotal += this.price 
-            alert("This item was added to your cart!")
+            console.log(cartTotal)
+            alert("This item was added to your cart.")
             MenuItem.renderCartTotal()
         }
         else {
-            alert("Click Order on the navigation menu to add to your cart!")
+            alert("Click order on the navigation menu to start order.")
         }  
     }
 
     removeFromCart() {
         document.getElementById(`item-${this.id}`).remove()
         cartTotal -= this.price 
-        alert("This item was removed from your cart!")
+        alert("This item was removed from your cart.")
         MenuItem.renderCartTotal()
     }
    

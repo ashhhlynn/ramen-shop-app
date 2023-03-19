@@ -57,7 +57,7 @@ class Order {
                 order.renderOrder()
             })
             .catch(function(error) {
-                alert("There were errors processing your order")
+                alert("There were errors processing your order.")
                 console.log(error.message);
             })
         }
@@ -70,11 +70,12 @@ class Order {
             const orderContents = document.createElement("div")
             orderContents.id = "order-contents"
             orderContents.innerHTML = `
-                <h2><b>Your Order is Complete!</h2><br>
+                <br><h5>Thank you for your order.</h5>
+                Ready for pickup in 20-30 minutes.<br><br>
                 Order #${this.id}<br>
                 Name: ${this.name}<br>
                 Total: $${this.total}<br><br>
-                Items:<br></b> `
+                Items:<br> `
             this.items.forEach(item => {
                 const menuItem = MenuItem.all.find(menuItem => menuItem.id == item.menu_item_id)
                 orderContents.innerHTML += `${menuItem.menuItemDisplay()} <br>`
@@ -89,7 +90,7 @@ class Order {
     }
 
    static renderOrderView() {
-        showOrHide(true, true)
+        showOrHide(true, false)
         resetCart()
         document.getElementById("start-order").disabled = false
     }
@@ -102,7 +103,7 @@ class Order {
             "Accept": "application/json"
             },
         })
-        alert("Your order was canceled!")
+        alert("Your order was canceled.")
         document.getElementById("order").hidden = true
     }
 
