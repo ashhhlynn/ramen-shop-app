@@ -1,3 +1,7 @@
+body {
+  background-color: #FEFEFB
+}
+
 .order {
   color: black;
   background: white;
@@ -22,7 +26,7 @@
 
 .welcome {
   color: white;
-  margin-left:830px;
+  margin-left:838px;
   box-sizing: border-box;
   height: 575px;
   width: 400px;
@@ -59,9 +63,10 @@
 }
 
 .welcome img {
- margin-top: 30px;
+ margin-top: 40px;
  width: 200px;
  height: 100px;
+ margin-bottom:10px;
 }
 
 img {
@@ -143,7 +148,7 @@ img {
   width: 250px;
   position: absolute;
   right: 30px;
-  top: 240px;
+  top: 200px;
   background: #f0f0f0;
   line-height: 26px;
   font-weight: 400;
@@ -153,7 +158,7 @@ img {
 }
 
 .add-button {
-  background-color: #f0f0f0;
+  background-color: #DBDBDB;
   color: black;
   width: 30px;
   height: 26px;
@@ -167,6 +172,7 @@ img {
 #cart h3 {
   margin-top: 15px;
   margin-bottom: 15px;
+  font-weight: normal;
 }
 
 #cart-contents {
