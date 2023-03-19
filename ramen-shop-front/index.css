@@ -11,10 +11,10 @@
 }
 
 .start {
+  background-position-y: 20%;
   background-repeat: no-repeat;
-  background-size: cover; 
-  background-position: center center;
   background-attachment: fixed; 
+  background-size: cover; 
   font-size: 20px;
   font-weight: 200;
   background-image: url("https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Best-Ramen-in-Dubai-C-14-04-1024x640.jpg")
@@ -71,23 +71,25 @@ img {
 
 .p-5 {
   background-image: url("https://www.wondereight.com/wp-content/uploads/2016/08/W8_Miyabi_header_wide.jpg");
-  height: 210px;
+  height: 200px;
   background-repeat: no-repeat;
   background-size: 100%;
-  object-fit: 50%;
-  background-position-x: 220%;
-  background-position-y: 20%;
+  background-position-x: -20%;
+  background-position-y: 100%;
 }
 
 .container-fluid button {
   background: none;
   color: white;
   border: none;
+  margin-right: 17px;
+  letter-spacing: 1px;
+  font-size: 18px;
 }
 
 .container-fluid ul {
   background: none;
-  text-align: right;
+  margin-right: 40%;
 }
 
 .container-fluid img {
