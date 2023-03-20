@@ -19,7 +19,7 @@ Yume is a mock restaurant ordering SPA (single page application) for Japanese cu
 Fork and clone both repos: ramen-shop-back and ramen-shop-front.
 
 Cd into the backend 
-- Bundle install 
+- Run bundle install 
 - Run rails db:create 
 - Run rails db:migrate 
 - Run rails db:seed 
