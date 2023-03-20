@@ -21,6 +21,7 @@ Customer clicks view menus button and loads the DOM, rendering menu categories a
 - Vanilla JavaScript
 - Bootstrap 5 
 - HTML and CSS
+- JSON API
 
 <h2>Installation</h2>
 
