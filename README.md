@@ -1,7 +1,7 @@
 # Yume 
 
 ## Description
-A mock takeout ordering Single Page Application for a Japanese restaurant. This app uses a Rails API backend and vanilla JavaScript frontend, utilizing Fetch API to complete CRUD actions. A user can view menus by category, add and remove menu items from a shopping cart, and submit orders. Styled with bootstrap 5 and CSS. 
+A mock takeout ordering Single Page Application for a Japanese restaurant. This app uses a Rails API backend and vanilla JavaScript frontend, utilizing Fetch API to complete CRUD actions. A user can view menus by category, add and remove menu items from a shopping cart, and submit orders. Styled with Bootstrap 5 and CSS. 
 
 ## Backend Model Relationships
 <a id="rel"></a>
