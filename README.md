@@ -18,9 +18,6 @@ A mock takeout ordering Single Page Application for a Japanese restaurant built 
 ```belongs_to :order```
 ```belongs_to :menu_item```
 
-## Frontend Functionality
-A user can view menu and menu items by category, add and remove items from a shopping cart, checkout with a cart total as the sum of prices with tax, submit an order form, and place order by sending it to the backend. 
-
 ## Tech Stack
 - Ruby on Rails 
 - Active Record
