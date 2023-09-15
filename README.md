@@ -32,7 +32,8 @@ A mock takeout ordering Single Page Application for a Japanese restaurant built 
 Fork and clone both repos: ramen-shop-back and ramen-shop-front.
 
 Cd into the backend 
-- Run bundle install 
+- Run bundle install
+- Run rails db:create
 - Run rails db:migrate 
 - Run rails db:seed 
 - Start server with rails s 
