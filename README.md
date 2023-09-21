@@ -1,11 +1,8 @@
 # Yume 
-
-## Description
-A mock takeout ordering Single Page Application for a Japanese restaurant built with a Ruby on Rails backend and vanilla JavaScript frontend, utilizing Fetch API to complete CRUD actions. A user can view menus by category, add and remove menu items from a shopping cart, and submit orders. Styled with Bootstrap 5 and CSS. 
+> A takeout ordering Single Page Application for a mock Japanese restaurant built with a Ruby on Rails backend and vanilla JavaScript frontend. Utilizing Fetch API to complete CRUD actions, a user can view menus by category, add and remove menu items from a shopping cart, and submit orders. Styled with Bootstrap 5 and CSS. 
 
 ## Backend Model Relationships
 <a id="rel"></a>
-##### [Back to Top](#top)
 ### Menu 
 ```has_many :menu_items```
 ### MenuItem 
@@ -18,7 +15,7 @@ A mock takeout ordering Single Page Application for a Japanese restaurant built 
 ```belongs_to :order```
 ```belongs_to :menu_item```
 
-## Tech Stack
+## Technologies Used
 - Ruby on Rails 
 - Active Record
 - Rack CORS
@@ -28,15 +25,19 @@ A mock takeout ordering Single Page Application for a Japanese restaurant built 
 - HTML and CSS
 
 ## Installation
+- ` git clone < back end > `
+- ` git clone < front end > `
+- ` cd < back end > `
+- ` bundle install `
+- ` rake db:create `
+- ` rake db:migrate `
+- ` rake db:seed `
+- ` rails s `
+- ` cd < front end > `
+- ` open index.html `
 
-Fork and clone both repos: ramen-shop-back and ramen-shop-front.
+## Acknowledgements
+This project was created by Ashley.
 
-Cd into the backend 
-- Run bundle install
-- Run rails db:create
-- Run rails db:migrate 
-- Run rails db:seed 
-- Start server with rails s 
-
-Cd into the frontend 
-- Run open index.html
+## License 
+This project is MIT licensed.
